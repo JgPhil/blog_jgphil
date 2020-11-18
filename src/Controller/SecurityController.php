@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
@@ -14,6 +16,20 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        /* $me = new User();
+        $me->setEmail("jamingph@gmail.com")
+            ->setFirstname("Philippe")
+            ->setLastname("Jaming")
+            ->setPassions(["Famille", "Informatique", "Sport"])
+            ->setPassword(password_hash("C@ch@b3ll3", PASSWORD_BCRYPT))
+            ->setRoles(["ROLE_ADMIN"])
+            ->setBirthdate(new DateTime("1980/11/05"));
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($me);
+        $entityManager->flush();
+ */
+
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
