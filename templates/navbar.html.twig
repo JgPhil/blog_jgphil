@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+	<img src="{{ asset('img/logo.png') }}" alt="logo"/>
+	<a class="navbar-brand" href={{ path('home') }}>Philippe Jaming</a>
+
+	<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+
+	<div id="navbar" class="collapse navbar-collapse">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('home') }}">
+					Accueil
+				</a>
+			</li>
+			{% if app.user %}
+				<li class="nav-item">
+                    <a class="nav-link" href="/admin">
+					Administration
+				</a>
+                </li>
+			{% endif %}
+
+			{% if not app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_login') }}">
+						Se connecter
+					</a>
+				</li>
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_logout') }}">
+						Se déconnecter
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+	<!--/.nav-collapse -->
+</nav>
