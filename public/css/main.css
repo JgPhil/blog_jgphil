@@ -1,0 +1,13 @@
+body {
+  padding-top: 100px;
+  background-color: #273136!important;
+  color:white!important;
+  font-family: 'Anonymous Pro', monospace!important;
+}
+
+.navbar-brand > img {
+  position: relative;
+  width: 150px;
+  left: 15px;
+  background-size: contain;
+}
