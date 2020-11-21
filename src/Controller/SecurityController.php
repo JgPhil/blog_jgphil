@@ -16,20 +16,6 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        /* $me = new User();
-        $me->setEmail("jamingph@gmail.com")
-            ->setFirstname("Philippe")
-            ->setLastname("Jaming")
-            ->setPassions(["Famille", "Informatique", "Sport"])
-            ->setPassword(password_hash("C@ch@b3ll3", PASSWORD_BCRYPT))
-            ->setRoles(["ROLE_ADMIN"])
-            ->setBirthdate(new DateTime("1980/11/05"));
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($me);
-        $entityManager->flush();
- */
-
         if ($this->getUser()) {
             return $this->redirectToRoute('home');
         }
