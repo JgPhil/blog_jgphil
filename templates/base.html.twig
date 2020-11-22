@@ -5,20 +5,18 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/0f7e81f372.js" crossorigin="anonymous"></script>
 		<title>
 			{% block title %}{% endblock %}
 		</title>
-		{% block stylesheets %}{% endblock %}
 	</head>
 	<body>
 		{% include "navbar.html.twig" %}
 
-		<div class="container main">
-		{% block body %}{% endblock %}
-		</div>
-		
-		{% block javascripts %}{% endblock %}
-	</body>
-</html>
+		<div class="container main"> {% block body %}{% endblock %}
+			</div>
+
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>
