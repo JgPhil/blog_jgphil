@@ -22,7 +22,6 @@
         "symfony/framework-bundle": "5.1.*",
         "symfony/http-client": "5.1.*",
         "symfony/intl": "5.1.*",
-        "symfony/maker-bundle": "^1.23",
         "symfony/mailer": "5.1.*",
         "symfony/mime": "5.1.*",
         "symfony/monolog-bundle": "^3.1",
@@ -39,10 +38,11 @@
         "symfony/web-link": "5.1.*",
         "symfony/yaml": "5.1.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "symfony/maker-bundle": "^1.23",
+        "doctrine/doctrine-fixtures-bundle": "^3.4"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.4",
         "spatie/phpunit-watcher": "^1.23",
         "symfony/browser-kit": "^5.1",
