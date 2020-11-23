@@ -27,7 +27,7 @@ class Post
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $desciption;
+    private $description;
 
     /**
      * @ORM\Column(type="datetime")
@@ -67,14 +67,14 @@ class Post
         return $this;
     }
 
-    public function getDesciption(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desciption;
+        return $this->description;
     }
 
-    public function setDesciption(string $desciption): self
+    public function setDescription(string $description): self
     {
-        $this->desciption = $desciption;
+        $this->description = $description;
 
         return $this;
     }
