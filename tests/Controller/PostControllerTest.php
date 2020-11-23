@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Tests\Controller;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as TestWebTestCase;
 
-class PostControllerTest extends TestWebTestCase
+use App\Entity\Post;
+use App\Entity\User;
+use App\Tests\AbstractWebTestCaseClass;
+use DateTime;
+
+class PostControllerTest extends AbstractWebTestCaseClass
 {
-    public function test_shows_new_post_page(){
-        $client = self::createClient();
-        $client->request('GET', '/post/new');
-        $this->assertResponseIsSuccessful();
-    }
 }
