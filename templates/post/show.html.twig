@@ -18,8 +18,8 @@
 		{{post.id}}
 	</h4>
 	<p>{{post.description}}</p>
-
-	<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-	<a class="btn btn-primary" href="{{ path('post_delete', {id:post.id}) }}">Supprimer</a>
-
+	{% if app.user %}
+		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+		<a class="btn btn-primary" href="{{ path('post_delete', {id:post.id}) }}">Supprimer</a>
+	{% endif %}
 {% endblock %}
