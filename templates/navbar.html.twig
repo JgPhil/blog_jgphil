@@ -31,14 +31,15 @@
 						Administration
 					</a>
 				</li>
+			{% endif %}
 
-			{% else %}
-
+			{% if not app.user %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_login') }}">
 						Se connecter
 					</a>
 				</li>
+			{% else %}
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_logout') }}">
