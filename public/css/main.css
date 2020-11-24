@@ -1,8 +1,8 @@
 body {
   padding-top: 100px;
-  background-color: #273136!important;
-  color:white!important;
-  font-family: 'Anonymous Pro', monospace!important;
+  background-color: #273136 !important;
+  color: white !important;
+  font-family: "Anonymous Pro", monospace !important;
 }
 
 .navbar-brand > img {
@@ -10,4 +10,11 @@ body {
   width: 150px;
   left: 15px;
   background-size: contain;
+}
+
+.new_post {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
