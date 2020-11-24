@@ -9,6 +9,9 @@
 		Tous les articles
 	</h1>
 
+	<div class="button new_post">
+		<a class="btn btn-primary" href="{{ path('post_new') }}">Nouvel article</a>
+	</div>
 
 	{% for post in posts %}
 
@@ -19,6 +22,9 @@
 			{{post.id}}
 		</h4>
 		<p>{{post.description}}</p>
+
+		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+		<a class="btn btn-primary" href="{{ path('post_delete', {id:post.id}) }}">Supprimer</a>
 
 	{% endfor %}
 

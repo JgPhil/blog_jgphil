@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Post;
 use App\Form\PostType;
+use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,9 @@ class PostController extends AbstractController
     /**
      * @Route("/posts/list", name="post_list", methods={"GET"})
      */
-    public function list(EntityManagerInterface $em, Request $request)
+    public function list(PostRepository $repo)
     {
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
+        $posts = $repo->findByActive(1);
         return $this->render('post/list.html.twig', [
             'posts' => $posts
         ]);
@@ -32,19 +33,27 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $post = $form->getData();
-
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('post_list');
         }
 
         return $this->render('post/new.html.twig', [
             'post' => $post,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/posts/{id}/delete", name="post_delete")
+     */
+    public function delete(EntityManagerInterface $em, Post $post)
+    {
+        $post->setActive(0);
+        $em->flush();
+        return $this->redirectToRoute('post_list');
     }
 
 
@@ -61,16 +70,27 @@ class PostController extends AbstractController
 
             $post = $form->getData();
             $post->setAuthor($this->getUser())
+                ->setActive(1)
                 ->setCreatedAt(new DateTime());
 
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('post_list');
         }
 
         return $this->render('post/new.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/posts/{id}", name="post_show", methods={"GET"})
+     */
+    public function show(Post $post)
+    {
+        return $this->render('post/show.html.twig', [
+            'post' => $post
         ]);
     }
 }
