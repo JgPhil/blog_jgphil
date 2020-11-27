@@ -20,6 +20,6 @@
 	<p>{{post.description}}</p>
 	{% if app.user %}
 		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-		<a class="btn btn-primary" href="{{ path('post_delete', {id:post.id}) }}">Supprimer</a>
+		<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}">Supprimer</a>
 	{% endif %}
 {% endblock %}

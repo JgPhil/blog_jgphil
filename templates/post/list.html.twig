@@ -9,24 +9,50 @@
 		Tous les articles
 	</h1>
 
-	<div class="button new_post">
-		<a class="btn btn-primary" href="{{ path('post_new') }}">Nouvel article</a>
+	{% if app.user %}
+		<div class="button new_post_btn">
+			<a class="btn btn-primary" href="{{ path('post_new') }}">Nouvel article</a>
+		</div>
+	{% endif %}
+
+	<div class="posts row">
+
+		{% for post in posts %}
+
+			<div class="one_post col-xs-12 col-lg-6">
+				<div class="card mb-4 ">
+					<a href="{{ path( 'post_show', { id: post.id } ) }}">
+						<img class="card-img-top" src="{{post.picture|default('../img/default-image.png') }}" alt="Une image de l'article  {{post.title}}">
+					</a>
+
+					<div class="card-body">
+						<div class="row ">
+							<h5 class="col-7">
+								<a href="{{ path( 'post_show', { id: post.id } ) }}">
+									{{ post.title }}
+								</a>
+							</h5>
+
+							{% if app.user %}
+								<div class="col-5">
+									<a href="{{ path('post_update', { id: post.id }) }}" class="p-1">
+										<i class="fas fa-pencil-alt fa-2x"></i>
+									</a>
+									<a href="{{ path('post_desactivate', { id: post.id }) }}" class="p-1" data-delete>
+										<i class="fas fa-trash-alt fa-2x"></i>
+									</a>
+								</div>
+							{% endif %}
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+
 	</div>
-
-	{% for post in posts %}
-
-		<h3>{{post.title}}</h3>
-		Ajouté le
-		<h4>{{post.createdAt|date('d/m/Y') }}
-			ID:
-			{{post.id}}
-		</h4>
-		<p>{{post.description}}</p>
-		{% if app.user %}
-			<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-			<a class="btn btn-primary" href="{{ path('post_delete', {id:post.id}) }}">Supprimer</a>
-		{% endif %}
-	{% endfor %}
-
 
 {% endblock %}
