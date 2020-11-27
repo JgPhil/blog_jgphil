@@ -1,8 +1,12 @@
 body {
   padding-top: 100px;
-  background-color: #273136 !important;
+  background-color: lightgrey !important;
   color: white !important;
   font-family: "Anonymous Pro", monospace !important;
+}
+
+.navbar {
+  font-weight: bold;
 }
 
 .navbar-brand > img {
@@ -12,9 +16,20 @@ body {
   background-size: contain;
 }
 
-.new_post {
+.new_post_btn {
   height: 100px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.posts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.one_post {
+  display: flex;
+  flex-direction: column;
 }

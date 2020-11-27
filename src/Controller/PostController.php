@@ -47,7 +47,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/posts/{id}/delete", name="post_delete")
+     * @Route("/posts/{id}/delete", name="post_desactivate")
      */
     public function delete(EntityManagerInterface $em, Post $post)
     {
