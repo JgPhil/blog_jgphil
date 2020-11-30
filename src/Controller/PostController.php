@@ -25,7 +25,14 @@ class PostController extends AbstractController
     }
 
     /**
+     * Undocumented function
+     *
      * @Route("/posts/{id}/update", name="post_update", methods={"GET","POST"})
+     * 
+     * @param Post $post
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @return void
      */
     public function update(Post $post, EntityManagerInterface $em, Request $request)
     {

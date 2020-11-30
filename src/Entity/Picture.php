@@ -33,6 +33,11 @@ class Picture
      */
     private $post;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sortOrder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +75,18 @@ class Picture
     public function setPost(?Post $post): self
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getSortOrder(): ?int
+    {
+        return $this->sortOrder;
+    }
+
+    public function setSortOrder(?int $sortOrder): self
+    {
+        $this->sortOrder = $sortOrder;
 
         return $this;
     }
