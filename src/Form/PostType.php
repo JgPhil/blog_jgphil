@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,6 +24,13 @@ class PostType extends AbstractType
                     'attr' => array('cols' => '5', 'rows' => '6')
                 ]
             )
+            ->add('pictures', FileType::class, [     
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => true,
+                'allow_extra_fields'=> true
+            ])
             ->add(
                 'submit',
                 SubmitType::class,
