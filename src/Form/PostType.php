@@ -28,7 +28,7 @@ class PostType extends AbstractType
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
-                'required' => true,
+                'required' => false,
                 'allow_extra_fields'=> true
             ])
             ->add(
