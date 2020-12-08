@@ -6,20 +6,23 @@
 
 
 {% block body %}
+	<div class="container">
+		<h1 class="display-5 font-weight-bold text-center my-4" style="background: url(' {{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }} ') no-repeat center;background-size: cover;
+																  background-position: center top;
+																  height: 720px;">>
+			{{post.title}}
+		</h1>
 
-	<h1 class="display-5 font-weight-bold text-center my-4">
-		{{post.title}}
-	</h1>
-
-	<h3>{{post.title}}</h3>
-	Ajouté le
-	<h4>{{post.createdAt|date('d/m/Y') }}
-		ID:
-		{{post.id}}
-	</h4>
-	<p>{{post.description}}</p>
-	{% if app.user %}
-		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-		<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}">Supprimer</a>
-	{% endif %}
+		<h3>{{post.title}}</h3>
+		Ajouté le
+		<h4>{{post.createdAt|date('d/m/Y') }}
+			ID:
+			{{post.id}}
+		</h4>
+		<p>{{post.description|nl2br}}</p>
+		{% if app.user %}
+			<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+			<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
+		{% endif %}
+	</div>
 {% endblock %}

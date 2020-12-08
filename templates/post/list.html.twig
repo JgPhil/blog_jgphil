@@ -22,7 +22,7 @@
 			<div class="one_post col-xs-12">
 				<div class="card mb-4 ">
 					<a href="{{ path( 'post_show', { id: post.id } ) }}">
-						<img class="card-img-top" src="{{post.picture|default('../img/default-image.png') }}" alt="Une image de l'article  {{post.title}}">
+						<img class="card-img-top" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article  {{post.title}}">
 					</a>
 
 					<div class="card-body">
@@ -38,7 +38,7 @@
 									<a href="{{ path('post_update', { id: post.id }) }}" class="p-1">
 										<i class="fas fa-pencil-alt fa-2x"></i>
 									</a>
-									<a href="{{ path('post_desactivate', { id: post.id }) }}" class="p-1" data-delete>
+									<a href="{{ path('post_desactivate', { id: post.id }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" class="p-1" data-delete>
 										<i class="fas fa-trash-alt fa-2x"></i>
 									</a>
 								</div>

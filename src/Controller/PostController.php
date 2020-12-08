@@ -6,6 +6,7 @@ use DateTime;
 use App\Entity\Post;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use App\Services\PicturesHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,22 +26,36 @@ class PostController extends AbstractController
     }
 
     /**
+     * Undocumented function
+     *
      * @Route("/posts/{id}/update", name="post_update", methods={"GET","POST"})
+     * 
+     * @param Post $post
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @return void
      */
-    public function update(Post $post, EntityManagerInterface $em, Request $request)
+    public function update(Post $post, EntityManagerInterface $em, Request $request, PicturesHandler $picturesHandler)
     {
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $post = $form->getData();
+            $pictures = $form->get('pictures')->getData();
+            $picturesErrors = $picturesHandler->handlePictures($pictures, $post);
+            if (!empty($picturesErrors[0])) {
+                $this->addFlash('danger', $picturesErrors);
+                return $this->redirectToRoute('post_list');
+            }
+
             $em->persist($post);
             $em->flush();
 
+            $this->addFlash('message', 'Votre article a bien été modifiée');
             return $this->redirectToRoute('post_list');
         }
 
-        return $this->render('post/new.html.twig', [
+        return $this->render('post/form.html.twig', [
             'post' => $post,
             'form' => $form->createView()
         ]);
@@ -67,19 +82,16 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $post = $form->getData();
             $post->setAuthor($this->getUser())
                 ->setActive(1)
                 ->setCreatedAt(new DateTime());
-
             $em->persist($post);
             $em->flush();
-
             return $this->redirectToRoute('post_list');
         }
 
-        return $this->render('post/new.html.twig', [
+        return $this->render('post/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }

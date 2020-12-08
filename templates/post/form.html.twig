@@ -15,6 +15,7 @@
 			{{ form_start(form)}}
 			{{ form_row(form.title) }}
 			{{ form_row(form.description) }}
+			{{ form_row(form.pictures) }}
 			<div class="col d-flex justify-content-end align-items-center form-group">
 				{{ form_widget(form.submit)}}
 			</div>
@@ -23,4 +24,13 @@
 
 		</div>
 	</div>
+{% endblock %}
+{% block javascripts %}
+	<script>
+		$('.custom-file-input').on('change', function (e) { // get the file name
+var fileName = e.target.files[0].name;
+// replace the "Choose a file" label
+$(this).next('.custom-file-label').html(fileName);
+})
+	</script>
 {% endblock %}

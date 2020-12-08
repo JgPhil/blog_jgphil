@@ -33,6 +33,16 @@ class Picture
      */
     private $post;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sortOrder;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pictures")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +80,30 @@ class Picture
     public function setPost(?Post $post): self
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getSortOrder(): ?int
+    {
+        return $this->sortOrder;
+    }
+
+    public function setSortOrder(?int $sortOrder): self
+    {
+        $this->sortOrder = $sortOrder;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
