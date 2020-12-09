@@ -46,15 +46,6 @@ class User implements UserInterface
      */
     private $lastname;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $birthdate;
-
-    /**
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $passions = [];
 
     /**
      * @ORM\OneToMany(targetEntity=Post::class, mappedBy="author", orphanRemoval=true)
@@ -172,30 +163,6 @@ class User implements UserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getBirthdate(): ?\DateTimeInterface
-    {
-        return $this->birthdate;
-    }
-
-    public function setBirthdate(\DateTimeInterface $birthdate): self
-    {
-        $this->birthdate = $birthdate;
-
-        return $this;
-    }
-
-    public function getPassions(): ?array
-    {
-        return $this->passions;
-    }
-
-    public function setPassions(?array $passions): self
-    {
-        $this->passions = $passions;
 
         return $this;
     }

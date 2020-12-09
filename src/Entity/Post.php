@@ -50,6 +50,11 @@ class Post
      */
     private $active;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $heading;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -146,6 +151,18 @@ class Post
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getHeading(): ?string
+    {
+        return $this->heading;
+    }
+
+    public function setHeading(?string $heading): self
+    {
+        $this->heading = $heading;
 
         return $this;
     }
