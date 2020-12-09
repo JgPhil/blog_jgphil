@@ -30,7 +30,7 @@
 
 							<div id={{"collapse" ~ post.id}} class="panel-collapse collapse">
 								<a href="{{ path( 'post_show', { id: post.id } ) }}">
-									{{ post.title }}
+									<img class="card-img-top" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 								</a>
 								<div class="panel-body">
 									<div class="card-body">
@@ -54,15 +54,12 @@
 										</div>
 									</div>
 								</div>
-							{% endif %}
 
+							</div>
 						</div>
-
-
 					</div>
 				</div>
 			</div>
-
 		{% endfor %}
 
 	</div>
