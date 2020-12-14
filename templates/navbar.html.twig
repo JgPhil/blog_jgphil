@@ -1,6 +1,7 @@
 {% set route_name = app.request.attributes.get('_route') %}
 
 
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top ">
 
 	<a class="navbar-brand" href={{ path('home') }}>
@@ -16,16 +17,22 @@
 
 		<ul class="navbar-nav ml-auto">
 
-			<li {% if route_name == "home" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<li {% if route_name == "home" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
 				<a class="nav-link" href="{{ path('home') }}">
 					Accueil
 				</a>
 			</li>
-			<li {% if route_name == "post_list" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+			<li {% if route_name == "post_list" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
 				<a class="nav-link" href="{{ path('post_list') }}">
 					Articles
 				</a>
 			</li>
+			<li {% if route_name == "contact" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+				<a class="nav-link" href="{{ path('contact') }}">
+					Contact
+				</a>
+			</li>
+
 
 			{% if app.user %}
 
