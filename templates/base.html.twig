@@ -15,17 +15,8 @@
 	</head>
 	<body>
 		{% include "navbar.html.twig" %}
+		{% block body %}{% endblock %}
 
-
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-10 col-sm-offset-1 col-xs-12"> {% block body %}{% endblock %}
-					</div>
-				</div>
-			</div>
-
-
-			{% block javascripts %}{% endblock %}
-		</body>
-	</html>
-</body></html>
+		{% block javascripts %}{% endblock %}
+	</body>
+</html></body></html>
