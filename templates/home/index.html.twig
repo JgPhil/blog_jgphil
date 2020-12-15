@@ -3,26 +3,24 @@
 {% block title "Accueil" %}
 
 {% block body %}
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-5 font-weight-bold text-center my-4">
-				Philippe Jaming
-				<br>
-				Développeur
-			</h1>
-			<p class="lead">Lorem Elsass ipsum blottkop,
-				hopla  geïz so wurscht non tristique turpis in,
-				knack Chulien bredele quam. habitant elementum et schneck vielmols,
-				Mauris und consectetur schnaps ornare mamsell ornare Pellentesque ullamcorper
-				Chulia Roberstau aliquam Strasbourg Verdammi amet, gravida suspendisse 
-				dignissim vulputate Christkindelsmärik eget Racing.
-				Yo dû. knepfle tchao bissame mänele hopla Richard Schirmeck ac
-			</p>
-			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="#" role="button">savoir plus</a>
+	<div class="container">
+		<div class="row intro">
+			<div class="col-4">
+				<img class="img-fluid" src="/img/photo_phil.jpg" alt="photo de Philippe Jaming">
+			</div>
+			<div class="col-8">
+				<h3 class="display-3 align-items-center">Bonjour,</h3>
+				<h1>
+					Je suis Philippe Jaming	Développeur PHP/Symfony
+				</h1>
+
+
+				<p class="lead">J’avance toujours dans ma quête du savoir et je monte en compétences quotidiennement. Mon parcours, complété par ma passion pour l'informatique, m'a permis d'acquérir les connaissances techniques et pratiques indispensables à l'exercice de ce métier.
+				</p>
+				<p class="lead">
+					<a class="btn btn-primary btn-lg" href="{{ path('contact') }} " role="button">savoir plus</a>
+				</p>
 			</p>
 		</div>
 	</div>
-
-
-{% endblock %}
+</div>{% endblock %}

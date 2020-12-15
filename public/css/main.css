@@ -1,11 +1,11 @@
 body {
   padding-top: 100px;
   font-family: "Anonymous Pro", monospace !important;
-  background-image: url("/img/cerf-montreux.jpg");
+  /* background-image: url("/img/cerf-montreux.jpg"); */
 }
 
 .navbar {
-  background-color: lightblue;
+  background-color: #d1692a;
 }
 
 .navbar-brand > img {
@@ -29,7 +29,7 @@ body {
 }
 
 .one_post {
-  box-shadow: 2px 12px 25px;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 img.card-img-top:hover {
@@ -56,7 +56,7 @@ img.card-img-top:hover {
 }
 
 .jumbotron {
-  background-image: url("/img/cerf-montreux.jpg");
+  /* background-image: url("/img/cerf-montreux.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   padding-left: 5rem;
@@ -69,5 +69,18 @@ img.card-img-top:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+}
+
+.intro{
+  margin-top: 10em;
+  border-radius: 8px;
+  box-shadow: 0 8px 6px -6px black;
+  background-color: lightgray;
+  padding: 1em 1em 1em 1em;
+}
+
+.buttons{
+  right: 10px;
+  position: absolute;
+  bottom: 10px;
 }
