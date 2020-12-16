@@ -4,8 +4,35 @@ body {
   /* background-image: url("/img/cerf-montreux.jpg"); */
 }
 
-.navbar {
+h3,
+h1 {
+  color: #d1692a;
+}
+
+.navbar,
+a.btn {
   background-color: #d1692a;
+  border: #3d200e;
+}
+
+.navbar{
+  overflow: hidden;
+}
+
+.nav-link {
+  border-bottom: 3px solid transparent;
+}
+
+.navbar li.active{
+  border-bottom: 5px solid #3d200e;
+}
+
+.navbar li:hover{
+  border-bottom: 5px solid #3d200e;
+}
+
+a.btn:hover {
+  background-color: #3d200e;
 }
 
 .navbar-brand > img {
@@ -44,7 +71,7 @@ img.card-img-top:hover {
 
 .card-body {
   min-height: 92px;
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
 }
 
 .card-img-top {
@@ -71,15 +98,15 @@ img.card-img-top:hover {
   justify-content: center;
 }
 
-.intro{
+.intro {
   margin-top: 10em;
   border-radius: 8px;
   box-shadow: 0 8px 6px -6px black;
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
   padding: 1em 1em 1em 1em;
 }
 
-.buttons{
+.buttons {
   right: 10px;
   position: absolute;
   bottom: 10px;
