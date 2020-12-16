@@ -2,7 +2,7 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="border-bottom: 5px solid black;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="border-bottom: 3px solid #3d200e;">
 
 	<a class="navbar-brand" href={{ path('home') }}>
 		<img src="{{ asset('img/logo.png') }}" alt="logo"/>
@@ -14,9 +14,7 @@
 
 
 	<div id="navbar" class="collapse navbar-collapse">
-
-		<ul class="navbar-nav ml-auto">
-
+		<ul class="navbar-nav ml-auto justify-content-end text-right">
 			<li {% if route_name == "home" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
 				<a class="nav-link" href="{{ path('home') }}">
 					Accueil

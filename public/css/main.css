@@ -4,18 +4,19 @@ body {
   /* background-image: url("/img/cerf-montreux.jpg"); */
 }
 
+.main-body {
+  border: 3px solid #3d200e;
+  background-color: lightgray;
+  min-width: 100%;
+  min-height: 920px;
+}
+
 h3,
 h1 {
   color: #d1692a;
 }
 
-.navbar,
-a.btn {
-  background-color: #d1692a;
-  border: #3d200e;
-}
-
-.navbar{
+.navbar {
   overflow: hidden;
 }
 
@@ -23,12 +24,15 @@ a.btn {
   border-bottom: 3px solid transparent;
 }
 
-.navbar li.active{
-  border-bottom: 5px solid #3d200e;
+.navbar li:hover,
+.navbar li.active {
+  border-bottom: 3px solid #3d200e;
 }
 
-.navbar li:hover{
-  border-bottom: 5px solid #3d200e;
+.navbar,
+a.btn {
+  background-color: #d1692a;
+  border: #3d200e;
 }
 
 a.btn:hover {
@@ -56,7 +60,8 @@ a.btn:hover {
 }
 
 .one_post {
-  box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px #3d200e;
+  margin-bottom: 50px !important;
 }
 
 img.card-img-top:hover {
@@ -99,7 +104,16 @@ img.card-img-top:hover {
 }
 
 .intro {
-  margin-top: 10em;
+  margin-top: 6em;
+}
+
+.meta {
+  margin-top: 2em;
+}
+
+.intro,
+.meta {
+  border: 3px solid #3d200e;
   border-radius: 8px;
   box-shadow: 0 8px 6px -6px black;
   background-color: rgb(240, 240, 240);
@@ -107,7 +121,16 @@ img.card-img-top:hover {
 }
 
 .buttons {
-  right: 10px;
+  right: 20px;
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
+}
+
+.fab,
+.buttons > a {
+  color: #d1692a;
+}
+.fab:hover,
+.buttons > a:hover {
+  color: #3d200e;
 }
