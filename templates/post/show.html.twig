@@ -23,7 +23,7 @@
 
 
 		
-		<a class="btn btn-primary" href="http://snowtricks.philippe-j.fr">Voir</a>
+		<a class="btn btn-primary" href="http://snowtricks.philippe-j.fr">Allons voir</a>
 		{% if app.user %}
 			<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
 			<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
