@@ -32,7 +32,7 @@ class PostDAO extends DAO
     /**
      * @param mixed $postId
      * 
-     * @return void
+     * @return Post
      */
     public function getPost($postId)
     {

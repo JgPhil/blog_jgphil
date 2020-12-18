@@ -32,7 +32,7 @@
 <section class="section">
   <div class="container">
     <div>
-      <p><a href="../public/index.php"><i class="fas fa-long-arrow-alt-left"></i> Retour à l'accueil</a></p>
+      <p><a href=""><i class="fas fa-long-arrow-alt-left"></i> Retour à l'accueil</a></p>
     </div>
     <div class="row">
       <div class="col-lg-12">
@@ -101,7 +101,7 @@
         {
           ?>
           <h4>Laissez un commentaire</h4>
-          <form method="post" action="<?= INDEX_PATH . SLUG . "addComment&postId=" . htmlentities($post->getId()); ?>" class="row">
+          <form method="post" action="<?=  SLUG . "addComment&postId=" . htmlentities($post->getId()); ?>" class="row">
             <div class="col-md-6">
               <input type="hidden" name="id" id="id" value="<?= $this->session->get('id'); ?> ">
               <input type="text" class="form-control mb-3" name="pseudo" id="pseudo" value="<?= $this->session->get('pseudo'); ?> " readonly>

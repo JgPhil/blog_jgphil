@@ -16,7 +16,7 @@ class AccountController extends BlogController
     /**
      * @param Method $postMethod
      * 
-     * @return void
+     * @return View
      */
     public function register(Method $postMethod)
     {

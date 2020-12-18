@@ -16,7 +16,7 @@ abstract class DAO
     private $connection;
 
     /**
-     * @return void
+     * @return PDOStatement
      */
     private function checkConnection()
     {
@@ -44,7 +44,7 @@ abstract class DAO
      * @param mixed $sql
      * @param null $parameters
      * 
-     * @return void
+     * @return PDOStatement
      */
     protected function createQuery($sql, $parameters = null)
     {
@@ -60,7 +60,7 @@ abstract class DAO
     /**
      * @param mixed $row
      * 
-     * @return void
+     * @return Object
      */
     protected function buildObject($row)
     {

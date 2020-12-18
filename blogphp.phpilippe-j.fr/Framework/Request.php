@@ -29,7 +29,7 @@ class Request
     }
 
     /**
-     * @return void
+     * @return Method
      */
     public function getGet()
     {
@@ -45,7 +45,7 @@ class Request
     }
 
     /**
-     * @return void
+     * @return Session
      */
     public function getSession()
     {

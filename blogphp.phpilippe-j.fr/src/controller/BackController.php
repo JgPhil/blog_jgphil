@@ -2,8 +2,10 @@
 
 namespace App\src\controller;
 
+use App\Entity\Post;
 use App\Framework\Method;
 use App\Framework\Upload;
+use App\Framework\View;
 
 /**
  * Class BackController
@@ -79,8 +81,7 @@ class BackController extends BlogController
     /**
      * @param Method $postMethod
      * @param mixed $postId
-     * 
-     * @return void
+     * @return View
      */
     public function editPost(Method $postMethod, $postId)
     {
