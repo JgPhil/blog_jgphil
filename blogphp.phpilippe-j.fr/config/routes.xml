@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+    <!--FRONTEND ROUTES -->
+    <route url="" application= "frontend" method= "home"></route>
+    <route url="post" application= "frontend" method= "post" param="$this->request->getGet()->getParameter('postId')"></route>
+    <route url="addComment" application= "frontend" method="addComment" param="$this->request->getPost(), $this->request->getGet()->getParameter('postId')"></route>
+    <route url="contact" application="frontend" method="contact" param="$this->request->getPost()"></route>   
+    <route url="logout" application= "frontend" method= "logout"></route>
+    <route url="profile" application= "frontend" method= "profile"></route>
+
+    <!--BACKEND ROUTES-->
+    <route url="addPost" application= "backend" method= "addPost" param="$this->request->getPost()"></route>
+    <route url="editPost" application= "backend" method= "editPost" param="$this->request->getPost(), $this->request->getGet()->getParameter('postId')"></route>
+    <route url="deletePost" application= "backend" method= "deletePost" param="$this->request->getGet()->getParameter('postId')"></route>
+    <route url="deleteComment" application= "backend" method= "deleteComment" param="$this->request->getGet()->getParameter('commentId')"></route>
+    <route url="deleteComment" application= "backend" method= "deleteComment" param="$this->request->getGet()->getParameter('commentId')"></route>    
+    <route url="administration" application= "backend" method= "administration"></route>
+    <route url="postComments" application= "backend" method= "postComments" param="$this->request->getGet()->getParameter('postId')"></route>
+    <route url="deleteUser" application= "backend" method= "deleteUser" param="$this->request->getGet()->getParameter('userId')"></route>
+    <route url="validateComment" application= "backend" method= "validateComment" param="$this->request->getGet()->getParameter('commentId')"></route>
+    <route url="invalidateComment" application= "backend" method= "inValidateComment" param="$this->request->getGet()->getParameter('commentId')"></route>
+    <route url="hideUser" application= "backend" method= "trash" param="$this->request->getGet()->getParameter('userId')"></route>
+    <route url="showUser" application= "backend" method= "show" param="$this->request->getGet()->getParameter('userId')"></route>
+    <route url="hidePost" application= "backend" method= "trash" param="$this->request->getGet()->getParameter('postId')"></route>
+    <route url="showPost" application= "backend" method= "show" param="$this->request->getGet()->getParameter('postId')"></route>
+    <route url="hideComment" application= "backend" method= "trash" param="$this->request->getGet()->getParameter('commentId')"></route>
+    <route url="showComment" application= "backend" method= "show" param="$this->request->getGet()->getParameter('commentId')"></route>
+    <route url="trash" application= "backend" method= "administration"></route>
+    <route url="emptyTrash" application= "backend" method= "emptyTrash"></route>
+    
+    <!--ACCOUNT ROUTES-->
+    <route url="register" application= "accountApp" method="register" param="$this->request->getPost()"></route>
+    <route url="login" application="accountApp" method="login" param="$this->request->getPost()"></route>
+    <route url="emailConfirm" application="accountApp" method="emailConfirm" param="$this->request->getGet()"></route>
+    <route url="desactivateAccount" application= "accountApp" method= "desactivateAccount" param="$this->request->getGet()->getParameter('pseudo')"></route>
+    <route url="update_user_picture" application="accountApp" method="updateUserPicture" param="$this->request->getPost()"></route>
+    <route url="updatePassword" application= "accountApp" method= "updatePassword" param="$this->request->getPost()"></route>
+    <route url="activateAccount" application= "accountApp" method= "activateAccount" param="$this->request->getGet()->getParameter('pseudo')"></route>
+    <route url="desactivateAccountAdmin" application= "accountApp" method= "desactivateAccountAdmin" param="$this->request->getGet()->getParameter('pseudo')"></route>
+    <route url="setAdmin" application= "accountApp" method= "setAdmin" param="$this->request->getGet()->getParameter('pseudo')"></route>
+
+</routes>
