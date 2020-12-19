@@ -124,7 +124,7 @@ class AccountController extends BlogController
                 $this->session->set('role', $result['result']['name']);
                 $this->session->set('pseudo', $postMethod->getParameter('pseudo'));
                 $this->session->set('picturePath', $result['picturePath']);
-                header('Location: ../public/index.php');
+                header('Location: /');
             } else {
                 $this->session->set('error_login', 'Vos identifiants sont incorrects');
                 return $this->view->render('login', [
