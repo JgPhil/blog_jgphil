@@ -1,5 +1,4 @@
 body {
-  font-size:x-large!important;
   padding-top: 100px;
   font-family: "Anonymous Pro", monospace !important;
   /* background-image: url("/img/cerf-montreux.jpg"); */
@@ -25,7 +24,6 @@ h1 {
   border-bottom: 3px solid transparent;
 }
 
-.navbar li:hover,
 .navbar li.active {
   border-bottom: 3px solid #3d200e;
 }

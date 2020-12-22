@@ -1,0 +1,18 @@
+$cd-txt: #3d200e;
+$cd-box: #d1692a;
+$cd-txt--invalid: #fff;
+$cd-danger: #b20a37;
+
+a.nav-link {
+  font-size: 26px;
+  transform: scale(1);
+}
+
+.navbar li {
+  transform: scale(1);
+  transition: transform 200ms;
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+

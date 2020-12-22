@@ -1,0 +1,14 @@
+a.nav-link {
+  font-size: 26px;
+  transform: scale(1);
+}
+
+.navbar li {
+  transform: scale(1);
+  transition: transform 200ms;
+}
+.navbar li:hover {
+  transform: scale(1.15);
+}
+
+/*# sourceMappingURL=base.css.map */
