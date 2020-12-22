@@ -1,18 +1,119 @@
 $cd-txt: #3d200e;
 $cd-box: #d1692a;
-$cd-txt--invalid: #fff;
-$cd-danger: #b20a37;
 
-a.nav-link {
-  font-size: 26px;
-  transform: scale(1);
+body {
+  padding-top: 70px;
+  font-family: "Anonymous Pro", monospace !important;
 }
 
-.navbar li {
-  transform: scale(1);
-  transition: transform 200ms;
-  &:hover {
-    transform: scale(1.15);
+.main-body {
+  background-color: #d3d3d3;
+  border: 3px solid $cd-txt;
+  min-width: 100%;
+  min-height: 920px;
+}
+
+h3,
+h1 {
+  color: $cd-box;
+}
+
+.navbar {
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
+  background-color: $cd-box;
+  & img {
+    position: relative;
+    height: 45px;
+    left: 15px;
+    background-size: contain;
+  }
+  & li {
+    transform: scale(1);
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.18);
+    }
+  }
+  & .nav-link {
+    font-size: 1.25rem;
+    
+  }
+  & li.active {
+    border-bottom: 3px solid $cd-txt;
   }
 }
 
+a.btn {
+  background-color: $cd-box;
+  border: $cd-box;
+  box-shadow: 2px 2px 7px #f09862, -3px -2px 7px #faefe8;
+  &:hover {
+    background-color: $cd-box;
+    color: $cd-txt;
+  }
+}
+
+.new_post_btn {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.one_post {
+  box-shadow: 0 8px 6px -6px $cd-txt;
+  margin-bottom: 50px !important;
+}
+
+img.card-img-top:hover {
+  opacity: 0.7;
+}
+
+.card {
+  margin: auto;
+  min-width: 40em;
+  max-width: 400px;
+}
+
+.card-body {
+  background-color: rgb(240, 240, 240);
+}
+
+.intro {
+  margin-top: 6em;
+  border-radius: 15px;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+}
+
+.meta {
+  margin-top: 150px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  padding: 1em 1em 1em 1em;
+}
+
+.buttons {
+  right: 20px;
+  position: absolute;
+  bottom: 20px;
+  & a {
+    color: $cd-box;
+    & a:hover {
+      color: $cd-txt;
+    }
+  }
+}
+
+.fab {
+  color: $cd-box;
+  &:hover {
+    color: $cd-txt;
+  }
+}
