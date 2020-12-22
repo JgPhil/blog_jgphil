@@ -1,14 +1,17 @@
 $cd-txt: #3d200e;
 $cd-box: #d1692a;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding-top: 70px;
   font-family: "Anonymous Pro", monospace !important;
+  background-color: #d3d3d3 !important;
 }
 
 .main-body {
-  background-color: #d3d3d3;
-  border: 3px solid $cd-txt;
   min-width: 100%;
   min-height: 920px;
 }
@@ -31,25 +34,22 @@ h1 {
     transform: scale(1);
     transition: transform 200ms;
     &:hover {
-      transform: scale(1.18);
+      transform: scale(1.10);
     }
   }
   & .nav-link {
-    font-size: 1.25rem;
-    
-  }
-  & li.active {
-    border-bottom: 3px solid $cd-txt;
+    font-size: 1.15rem;
+    margin:0 20px;
   }
 }
 
 a.btn {
   background-color: $cd-box;
   border: $cd-box;
-  box-shadow: 2px 2px 7px #f09862, -3px -2px 7px #faefe8;
   &:hover {
     background-color: $cd-box;
     color: $cd-txt;
+    box-shadow: 3px 5px 7px #f098626e, -3px -5px 7px #faefe8;
   }
 }
 
@@ -89,6 +89,13 @@ img.card-img-top:hover {
   margin-top: 6em;
   border-radius: 15px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  & .intro-photo {
+    padding: 20px;
+    opacity: 0.8;
+  }
+  & .intro-text {
+    padding: 20px;
+  }
 }
 
 .meta {
