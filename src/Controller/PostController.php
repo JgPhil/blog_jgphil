@@ -75,17 +75,24 @@ class PostController extends AbstractController
     /**
      * @Route("/posts/new", name="post_new", methods={"GET","POST"})
      */
-    public function new(EntityManagerInterface $em, Request $request)
+    public function new(EntityManagerInterface $em, PicturesHandler $picturesHandler, Request $request)
     {
         $post = new Post;
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pictures = $form->get('pictures')->getData();
+            $picturesErrors = $picturesHandler->handlePictures($pictures, $post);
+            if (!empty($picturesErrors[0])) {
+                $this->addFlash('danger', $picturesErrors);
+                return $this->redirectToRoute('post_list');
+            }
             $post = $form->getData();
             $post->setAuthor($this->getUser())
                 ->setActive(1)
                 ->setCreatedAt(new DateTime());
+
             $em->persist($post);
             $em->flush();
             return $this->redirectToRoute('post_list');
