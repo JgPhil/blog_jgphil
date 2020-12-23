@@ -9,7 +9,7 @@
 				<img class="img-fluid d-none d-lg-block border border-dark rounded" src="/img/photo_phil.jpg" alt="photo de Philippe Jaming">
 			</div>
 			<div class="col-xs-12 col-lg-8 intro-text">
-				<h3 class="display-3 align-items-center ">Bonjour,</h3>
+				<h3 class="display-4 align-items-center ">Bonjour,</h3>
 				<h1>
 					<span class="h3 text-dark">Je suis Philippe Jaming
 					</span><br>Développeur PHP/Symfony
@@ -17,28 +17,41 @@
 
 				<p class="lead">Toujours en quête de savoir, je monte en compétences quotidiennement. Mon parcours, complété par ma passion pour l'informatique, m'a permis d'acquérir les connaissances techniques et pratiques indispensables à l'exercice de ce métier.
 				</p>
-				<a class="btn btn-primary" href="{{ path('contact') }} " role="button">savoir plus</a>
+				<div>
+					<a class="btn btn-primary mx-3" href="{{ path('contact') }} " role="button">Savoir plus</a>
+					<a class="btn btn-primary mx-3" href="cv-Philippe-Jaming.pdf" role="button">Curiculum vitae</a>
+				</div>
 			</div>
 		</div>
+
 		<div class="row meta">
-			<div class="col d-flex align-items-center justify-content-center">
-				<ul>
-					<li>Localisation: Alsace bossue, Moselle</li>
-					<li>@email: jamingph@gmail.com</li>
-					<li>tel: 06 74 25 72 29</li>
-				</ul>
-			</div>
-			<div class="col d-flex align-items-center justify-content-center">
 
-
+			<div class="col d-flex align-items-center justify-content-center">
 				<a href="https://github.com/JgPhil">
-					<i class="fab fa-github-square fa-4x mx-2"></i>
+					<i class="fab fa-github-square fa-3x mx-3"></i>
 				</a>
 				<a href="https://www.linkedin.com/in/philippe-j-61a477194/">
-					<i class="fab fa-linkedin fa-4x mx-2"></i>
+					<i class="fab fa-linkedin fa-3x mx-3"></i>
 				</a>
-
+				<a href="https://twitter.com/JamingPhilippe">
+					<i class="fab fa-twitter fa-3x mx-3"></i>
+				</a>
 			</div>
+
+			<div class="col-xs-12 col-md-6 d-flex align-items-center justify-content-center">
+				<ul>
+					<li class="my-3">
+						<i class="fa fa-map-marker mr-4" aria-hidden="true"></i>
+						Alsace, Moselle</li>
+					<li class="my-3">
+						<i class="fas fa-envelope mr-4"></i>
+						jamingph@gmail.com</li>
+					<li class="my-3">
+						<i class="fa fa-phone mr-4" aria-hidden="true"></i>
+						tel: 06 74 25 72 29</li>
+				</ul>
+			</div>
+
 		</div>
 	</div>
 {% endblock %}

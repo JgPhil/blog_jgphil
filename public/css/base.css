@@ -5,17 +5,15 @@
 body {
   padding-top: 70px;
   font-family: "Anonymous Pro", monospace !important;
-  background-color: #d3d3d3 !important;
-}
-
-.main-body {
-  min-width: 100%;
-  min-height: 920px;
+  background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
 }
 
 h3,
 h1 {
-  color: #d1692a;
+  color: #d1692a !important;
 }
 
 .navbar {
@@ -40,46 +38,46 @@ h1 {
   margin: 0 20px;
 }
 
-a.btn {
-  background-color: #d1692a;
-  border: #d1692a;
-}
-a.btn:hover {
-  background-color: #d1692a;
-  color: #3d200e;
-  box-shadow: 3px 5px 7px #f098626e, -3px -5px 7px #faefe8;
-}
-
 .new_post_btn {
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.new_post_btn a.btn {
+  background-color: #d1692a;
+  border: #d1692a;
+}
+.new_post_btn a.btn:hover {
+  background-color: #d1692a;
+  color: #3d200e;
+  box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
+}
 
 .posts {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-.one_post {
-  box-shadow: 0 8px 6px -6px #3d200e;
-  margin-bottom: 50px !important;
+.card.one_post {
+  border-style: none;
+  background-color: unset;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  min-width: 250px;
 }
-
-img.card-img-top:hover {
+.card.one_post img:hover {
   opacity: 0.7;
 }
-
-.card {
-  margin: auto;
-  min-width: 40em;
-  max-width: 400px;
+.card.one_post h4 a,
+.card.one_post div.buttons i {
+  color: #d1692a;
 }
-
-.card-body {
-  background-color: #f0f0f0;
+.card.one_post h4 a:hover,
+.card.one_post div.buttons i:hover {
+  color: #3d200e;
+  text-decoration: none;
 }
 
 .intro {
@@ -94,25 +92,29 @@ img.card-img-top:hover {
 .intro .intro-text {
   padding: 20px;
 }
+.intro .intro-text a.btn {
+  background-color: #d1692a;
+  border: #d1692a;
+}
+.intro .intro-text a.btn:hover {
+  background-color: #d1692a;
+  color: #3d200e;
+  box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
+}
 
 .meta {
-  margin-top: 150px;
+  margin-top: 5vw;
   background-color: #d3d3d3;
   border-radius: 10px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
   padding: 1em 1em 1em 1em;
 }
-
-.buttons {
-  right: 20px;
-  position: absolute;
-  bottom: 20px;
+.meta ul {
+  margin-bottom: 0;
 }
-.buttons a {
-  color: #d1692a;
-}
-.buttons a a:hover {
-  color: #3d200e;
+.meta li {
+  list-style: none;
+  font-size: 1.2rem;
 }
 
 .fab {
@@ -120,6 +122,11 @@ img.card-img-top:hover {
 }
 .fab:hover {
   color: #3d200e;
+}
+
+.copyright {
+  background-color: transparent;
+  margin: 15vw 0 1vw 0;
 }
 
 /*# sourceMappingURL=base.css.map */
