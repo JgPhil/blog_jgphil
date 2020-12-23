@@ -6,7 +6,7 @@
 {% block body %}
 	<div class="row justify-content-center">
 		<div class="col-xs-12">
-			<div class="posts-title mx-auto align-items-center">
+			<div class="title mx-auto align-items-center">
 				<h1 class="text-center font-weight-bold">
 					Mes réalisations
 				</h1>
@@ -21,7 +21,7 @@
 				<div class="row justify-content-center">
 					{% for post in posts %}
 						<div class="one_post col-xs-12 col-xl-6">
-							<div class="card ">
+							<div class="card">
 								<a href="{{ path( 'post_show', { id: post.id } ) }}">
 									<img class="card-img-top" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 								</a>

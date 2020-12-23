@@ -54,11 +54,11 @@ h1 {
   box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
 }
 
-.posts-title {
+.title {
   border-radius: 5px;
   box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
-  width: 45vw;
   height: 7vw;
+  max-width: 75%;
   padding: 20px;
   margin-top: 5vw;
   margin-bottom: 5vw;

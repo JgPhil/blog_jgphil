@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/phil/projects/blog_jgphil/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/phil/projects/blog_jgphil/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="contact-form row justify-content-center">
+		<div class="col-xs-12 col-lg-6">
+			<div class="title mx-auto align-items-center">
+				<h1 class="text-center font-weight-bold">
+					Contactez-moi
+				</h1>
+			</div>
+			{{ form_start(form) }}
+			<div class="row">
+				<div class="col">{{ form_row(form.firstname)}}
+				</div>
+				<div class="col">{{ form_row(form.lastname)}}
+				</div>
+			</div>
+			<div>{{ form_row(form.society)}}</div>
+			<div>{{ form_row(form.phone)}}</div>
+			{{ form_end(form) }}
+		</div>
+	</div>
 {% endblock %}
