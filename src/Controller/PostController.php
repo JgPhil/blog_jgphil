@@ -78,6 +78,8 @@ class PostController extends AbstractController
     public function new(EntityManagerInterface $em, PicturesHandler $picturesHandler, Request $request)
     {
         $post = new Post;
+        $post->setAuthor($this->getUser())
+            ->setActive(1);
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -89,9 +91,7 @@ class PostController extends AbstractController
                 return $this->redirectToRoute('post_list');
             }
             $post = $form->getData();
-            $post->setAuthor($this->getUser())
-                ->setActive(1)
-                ->setCreatedAt(new DateTime());
+
 
             $em->persist($post);
             $em->flush();

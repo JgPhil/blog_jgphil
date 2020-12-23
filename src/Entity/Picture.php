@@ -28,7 +28,7 @@ class Picture
     private $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="pictures", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $post;
