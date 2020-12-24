@@ -54,11 +54,21 @@ h1 {
   box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
 }
 
+form[method=post] button {
+  background-color: #d1692a;
+  border: #d1692a;
+  color: #fff;
+}
+form[method=post] button:hover {
+  background-color: #d1692a;
+  color: #3d200e;
+  box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
+}
+
 .title {
   border-radius: 5px;
   box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
-  height: 7vw;
-  max-width: 75%;
+  max-width: 30em;
   padding: 20px;
   margin-top: 5vw;
   margin-bottom: 5vw;
@@ -93,23 +103,24 @@ h1 {
   text-decoration: none;
 }
 
-.intro {
+.content-block {
+  padding: 20px;
   margin-top: 6em;
   border-radius: 15px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
 }
-.intro .intro-photo {
+.content-block .content-block-photo {
   padding: 20px;
   opacity: 0.8;
 }
-.intro .intro-text {
+.content-block .content-block-text {
   padding: 20px;
 }
-.intro .intro-text a.btn {
+.content-block .content-block-text a.btn {
   background-color: #d1692a;
   border: #d1692a;
 }
-.intro .intro-text a.btn:hover {
+.content-block .content-block-text a.btn:hover {
   background-color: #d1692a;
   color: #3d200e;
   box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
