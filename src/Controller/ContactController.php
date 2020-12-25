@@ -4,10 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
@@ -15,7 +19,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request, EntityManagerInterface $manager): Response
+    public function contact(Request $request, EntityManagerInterface $manager, MailerInterface $mailer): Response
     {
         $contact = new Contact;
 
@@ -25,6 +29,20 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
             $manager->persist($contact);
+
+            $email = (new Email())
+                ->from('contact@philippe-j.fr')
+                ->to('contact@philippe-j.fr')
+                ->subject('Nouveau contact')
+                ->html('l\'utilisateur ' .
+                    $contact->getFirstname() .
+                    ' ' . $contact->getLastname() .
+                    ' <br>' . 'adresse email: ' .
+                    $contact->getEmail() .
+                    '  <br>' . 'vous a contacté à' .
+                    $contact->getCreatedAt()->format('Y-m-d') . '. Le contenu du message est le suivant <br>' .
+                    $contact->getContent());
+            $mailer->send($email);
             $manager->flush();
 
             $this->addFlash('message', 'Votre message a bien été envoyé');
