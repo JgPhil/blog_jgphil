@@ -39,8 +39,10 @@ class ContactController extends AbstractController
                     ' ' . $contact->getLastname() .
                     ' <br>' . 'adresse email: ' .
                     $contact->getEmail() .
-                    '  <br>' . 'vous a contacté à' .
-                    $contact->getCreatedAt()->format('Y-m-d') . '. Le contenu du message est le suivant <br>' .
+                    '  <br>' . 'vous a contacté le ' .
+                    $contact->getCreatedAt()->format('Y-m-d') .
+                    '  à ' . $contact->getCreatedAt()->format('H:m:i') .
+                    '.<br><br> Message : <br>' .
                     $contact->getContent());
             $mailer->send($email);
             $manager->flush();
