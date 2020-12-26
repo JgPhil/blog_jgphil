@@ -33,7 +33,7 @@ class ContactController extends AbstractController
             $email = (new Email())
                 ->from('contact@philippe-j.fr')
                 ->to('contact@philippe-j.fr')
-                ->subject('Nouveau contact')
+                ->subject('Nouveau contact #' . $contact->getId() . ' - ' . $contact->getEmail())
                 ->html('l\'utilisateur ' .
                     $contact->getFirstname() .
                     ' ' . $contact->getLastname() .
