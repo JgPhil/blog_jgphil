@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Picture;
 use App\Entity\Post;
 use App\Repository\PictureRepository;
+use App\Repository\PostRepository;
 use App\Services\PicturesHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,26 +50,32 @@ class PictureController extends AbstractController
         Request $request,
         PicturesHandler $pictureHandler,
         PictureRepository $pictureRepo,
-        EntityManagerInterface $manager
+        EntityManagerInterface $manager,
+         PostRepository $postRepo
     ) {
 
-        $oldPictureId = $request->query->get('oldPictureId');
+        $oldPictureId = $request->request->get('oldPictureId');
         $oldPicture = $pictureRepo->find($oldPictureId);
-        $oldPictureSortOrder = $oldPicture->getSortOrder();
-        //Récupération et sauvegarde du fichier image
+        $oldPictureSortOrder = $request->request->get('oldPictureOrder');
+        $postId = $request->request->get('postId');
+        $post = $postRepo->find($postId);
         $pictureFile = $request->files->get('file');
-        $filename = $pictureHandler->movePicture($pictureFile);
+        $errors = $pictureHandler->checkPictures($pictureFile);
+        if (!empty($errors[0])) {
+            $this->addFlash('danger', $errors);
+            return $this->redirectToRoute('post_show',[
+                'id' => $postId,
+                'message' =>   $errors[0]
+            ]);
+        }
+        $filename = $pictureHandler->rename($pictureFile);
+        $pictureHandler->movePicture($pictureFile, $filename);
         $newPicture = new Picture();
         $newPicture->setSortOrder($oldPictureSortOrder);
         $newPicture->setPost($post);
         $newPicture->setName($filename);
         $post->addPicture($newPicture);
-        unlink(
-            $this->params->get('pictures_directory') .
-                '/' .
-                $oldPicture->getName()
-        );
-        //effacement de l'entrée en base de l'ancienne image
+        $pictureHandler->delete($oldPicture);        
         $manager->remove($oldPicture);
         $manager->flush();
 
@@ -80,5 +87,4 @@ class PictureController extends AbstractController
             200
         );
     }
-
 }

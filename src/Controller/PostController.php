@@ -42,12 +42,14 @@ class PostController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $pictures = $form->get('pictures')->getData();
-            $picturesErrors = $picturesHandler->handlePictures($pictures, $post);
-            if (!empty($picturesErrors[0])) {
-                $this->addFlash('danger', $picturesErrors);
-                return $this->redirectToRoute('post_list');
+            foreach ($pictures as $picture) {
+                $errors = $picturesHandler->checkPictures($picture);
+                if (!empty($errors[0])) {
+                    $this->addFlash('danger', $errors);
+                    return $this->redirectToRoute('post_list');
+                }
+                $picturesHandler->addPicture($picture, $post);
             }
-
             $em->persist($post);
             $em->flush();
 

@@ -42,7 +42,7 @@ class Post
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="post")
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="post", cascade={"persist"})
      */
     private $pictures;
 

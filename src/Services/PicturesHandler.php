@@ -7,7 +7,9 @@ use App\Entity\User;
 use App\Entity\Picture;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\EntityManagerInterface;
+use App\src\model\Picture as ModelPicture;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -24,58 +26,55 @@ class PicturesHandler
         $this->entityManager = $entityManager;
     }
 
-    public function movePicture(UploadedFile $picture)
+    public function rename(File $picture)
     {
-        //nouveau nom de fichier
-        $filename = md5(uniqid()) . '.' . $picture->guessExtension();
-        //copie dans dossier uploads
-        $picture->move(
-            $this->params->get('pictures_directory'),
-            $filename
-        );
-        return $filename;
+        return $filename = md5(uniqid()) . '.' . $picture->guessExtension();
     }
 
-    public function handlePictures($pictures, $entity)
+    public function movePicture(UploadedFile $picture, $name)
+    {
+        $picture->move(
+            $this->params->get('pictures_directory'),
+            $name
+        );
+    }
+
+    public function checkPictures(File $picture): array
     {
         $errors = [];
-
-        foreach ($pictures as $picture) {
-            if (!empty($picture)) {
-                if ($picture->getSize() < 2097150) {
-                    if ($this->correctExtension($picture)) {
-                        $this->addPicture($picture, $entity);
-                    } else {
-                        $errors[] =  "Mauvais format d'image.  Fichiers acceptés: " . implode(', ' . $this->acceptedExtensions);
-                    }
-                } else {
-                    $errors[] = "Le fichier image est trop volumineux. maximum: 2 Mb";
-                }
-            } else {
-                $errors[] = "Il y a eu un problème lors de la création de votre post";
-            }
+        if (empty($picture)) {
+            $errors[] = "Il y a eu un problème lors de la création de votre post";
+        }
+        if (!$this->correctExtension($picture)) {
+            $errors[] =  "Mauvais format d'image.  Fichiers acceptés: " . implode(', ' . $this->acceptedExtensions);
+        }
+        if ($picture->getSize() > 2097150) {
+            $errors[] = "Le fichier image est trop volumineux. maximum: 2 Mb";
         }
         return $errors;
     }
 
 
 
-    public function addPicture($picture, $entity)
+    public function addPicture($pictureFile, $entity)
     {
 
-        if($entity instanceof User ){
+        if ($entity instanceof User) {
             $oldPicture = $this->hasPicture($entity);
-            if($oldPicture !== null){
+            if ($oldPicture !== null) {
                 $this->entityManager->remove($oldPicture);
             }
         }
-        $filename = $this->movePicture($picture); //move file && fetch the filename
+        $filename = $this->rename($pictureFile);
+        $this->movePicture($pictureFile, $filename);
         $pic = new Picture;
         $pic->setName($filename);
+        
         if ($entity instanceof Post) {
             $maxOrder = $this->findPictureHighestOrder($entity);
             $pic->setSortOrder($maxOrder + 1);
         }
+        $pic->setPost($entity);
         $this->entityManager->persist($pic);
         $entity->addPicture($pic);
         $this->entityManager->flush();
@@ -115,5 +114,14 @@ class PicturesHandler
             }
         }
         return $maxOrder;
+    }
+
+    public function delete($picture)
+    {
+        unlink(
+            $this->params->get('pictures_directory') .
+                '/' .
+                $picture->getName()
+        );
     }
 }
