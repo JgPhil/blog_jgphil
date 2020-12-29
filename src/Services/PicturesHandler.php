@@ -104,7 +104,7 @@ class PicturesHandler
         }
     }
 
-    private function findPictureHighestOrder(Post $post)
+    public function findPictureHighestOrder(Post $post)
     {
         $pictures = $post->getPictures();
         // trouver le sort_order le plus élevé dans les images
