@@ -3,30 +3,49 @@
 {% block title "Accueil" %}
 
 {% block body %}
-	<div class="container">
-	
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container text-center intro">
+			<h1 class="display-4">Philippe J. Développeur PHP</h1>
+			<p class="lead">Applications PHP modernes répondants à vos besoins métiers.</p>
+			<p class="lead">Sites vitrines avec Wordpress</p>
+			<div class="intro-buttons">
+				<a class="btn btn-primary mx-3" href="#services-list" role="button">Nos services</a>
+				<a class="btn btn-primary mx-3" href="{{ path('contact') }} " role="button">En savoir plus sur moi</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="container services">
+
 		{% for message in app.flashes('message') %}
 			<div class="flash-info">
 				<div class="alert alert-success">{{ message }}</div>
 			</div>
 		{% endfor %}
 
-		<div class="row content-block">
-			<div class="col-4 d-none d-lg-block content-block-photo">
-				<img class="img-fluid d-none d-lg-block border border-dark rounded" src="/img/photo_phil.jpg" alt="photo de Philippe Jaming">
-			</div>
-			<div class="col-xs-12 col-lg-8 content-block-text">
-				<h3 class="display-4 align-items-center ">Bonjour,</h3>
-				<h1>
-					<span class="h3 text-dark">Je suis Philippe Jaming
-					</span><br>Développeur PHP/Symfony
-				</h1>
+		<h2 class="display-4 text-center" id="services-list">Nos Services</h2>
 
-				<p class="lead">Toujours en quête de savoir, je monte en compétences quotidiennement. Mon parcours, complété par ma passion pour l'informatique, m'a permis d'acquérir les connaissances techniques et pratiques indispensables à l'exercice de ce métier.
-				</p>
-				<div>
-					<a class="btn btn-primary mx-3" href="{{ path('contact') }} " role="button">Savoir plus</a>
-					<a class="btn btn-primary mx-3" href="cv-Philippe-Jaming.pdf" role="button">Curiculum vitae</a>
+		<div class="row services-list">
+			<div class="column col-xs-12 col-lg-4">
+				<div class="service">
+					<i class="fas fa-tools fa-3x"></i>
+					<h4>Développement</h4>
+					<p>Un besoin spécifique ? Nous pouvons vous développer une application sur-mesure avec le Framework Symfony.</p>
+				</div>
+			</div>
+			<div class="column col-xs-12 col-lg-4">
+				<div class="service">
+					<i class="fab fa-wordpress fa-3x"></i>
+					<h4>Wordpress</h4>
+					<p>Pour vos sites vitrine, nous vous proposons la mise en place et la personnalisation de votre site avec WordPress.</p>
+				</div>
+			</div>
+			<div class="column col-xs-12 col-lg-4">
+				<div class="service">
+					<i class="fas fa-fire-extinguisher fa-3x"></i>
+					<h4>Aide & Support</h4>
+					<p>Nous pouvons vous apporter notre expertise, notre aide ou notre support dans votre utilisation des outils numérique.</p>
 				</div>
 			</div>
 		</div>
@@ -60,5 +79,5 @@
 			</div>
 
 		</div>
-	</div>
+	</section>
 {% endblock %}

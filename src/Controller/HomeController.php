@@ -21,4 +21,18 @@ class HomeController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+
+    /**
+     * Undocumented function
+     *
+     * @Route("/a-propos", name="about")
+     * @return Response
+     */
+    public function about(): Response
+    {
+        return $this->render('home/about.html.twig', [
+            'user' => $this->getUser()
+        ]);
+    }
 }

@@ -5,18 +5,30 @@ $cd-box: #d1692a;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: 70px;
-  font-family: "Anonymous Pro", monospace !important;
+  font-family: "Ubuntu", sans-serif !important;
   background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
   width: 100%;
   min-height: 100vh;
   background-size: cover;
 }
 
+.jumbotron {
+  background: url("../img/cerf-montreux.jpg") no-repeat top center;
+  background-size: cover;
+  height: 850px;
+}
+
 h3,
+h2,
 h1 {
   color: $cd-box !important;
+  font-weight: 700;
 }
 
 .navbar {
@@ -57,14 +69,15 @@ h1 {
   }
 }
 
-form[method=post] button {
+form[method="post"] button,
+.intro-buttons a{
   background-color: $cd-box;
   border: $cd-box;
   color: #fff;
   &:hover {
     background-color: $cd-box;
     color: $cd-txt;
-    box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
+    box-shadow: 1px 1px 4px #8b8582, -1px -1px 5px #faefe8;
   }
 }
 
@@ -73,10 +86,49 @@ form[method=post] button {
   box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
   max-width: 30em;
   padding: 20px;
-  margin-top: 5vw;
-  margin-bottom: 5vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
   color: #3f3c3a;
   text-shadow: 1px 1px 5px #969696;
+}
+
+.intro {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(179, 179, 179, 0.6);
+  box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85),
+    +50px 0 5em rgba(179, 179, 179, 0.85);
+}
+
+.services {
+  margin-top: 100px;
+  & .services-list {
+    margin-top: 50px;
+    justify-content: center;
+    & .column {
+      padding-right: 30px;
+      padding-left: 30px;
+      min-height: 100%;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    & .service {
+      border-radius: 5px;
+      box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
+      background-color: rgba(179, 179, 179, 0.6);
+      padding: 40px;
+      min-height: 100%;
+      & h4 {
+        margin-top: 15px;
+      }
+      & p {
+        margin-top: 30px;
+      }
+      & i {
+        text-align: center;
+      }
+    }
+  }
 }
 
 .posts {
@@ -143,12 +195,11 @@ form[method=post] button {
     list-style: none;
     font-size: 1.2rem;
   }
-}
-
-.fab {
-  color: $cd-box;
-  &:hover {
-    color: $cd-txt;
+  & i.fab {
+    color: $cd-box;
+    &:hover {
+      color: $cd-txt;
+    }
   }
 }
 
