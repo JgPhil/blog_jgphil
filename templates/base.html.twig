@@ -17,13 +17,15 @@
 
 		<div class="main-body">
 			{% include "navbar.html.twig" %}
-			{% block body %}{% endblock %}
-			<footer class="text-center text-lg-start">
-				<div class="text-center p-3 copyright">
-					© 2020 Copyright:
-					<a class="text-dark" href="https://mdbootstrap.com/">philippe-j.fr</a>
-				</div>
-			</footer>
+			{% block jumbotron %}{% endblock %}
+			<div class="container main-container"> {% block body %}{% endblock %}
+				<footer class="text-center text-lg-start">
+					<div class="text-center p-3 copyright">
+						© 2020 Copyright:
+						<a class="text-dark" href="https://mdbootstrap.com/">philippe-j.fr</a>
+					</div>
+				</footer>
+			</div>
 		</div>
 		{% block javascripts %}
 			<script src=" {{ asset('js/media_delete.js') }} "></script>

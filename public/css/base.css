@@ -9,23 +9,30 @@ html {
 body {
   padding-top: 70px;
   font-family: "Ubuntu", sans-serif !important;
-  background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
+  background-color: #686767 !important;
   width: 100%;
   min-height: 100vh;
   background-size: cover;
 }
 
-.jumbotron {
-  background: url("../img/cerf-montreux.jpg") no-repeat top center;
+.main-body > .jumbotron {
+  background: url("../img/network.jpg") no-repeat top center;
   background-size: cover;
   height: 850px;
+  margin-bottom: 0;
+}
+
+.main-body > .main-container {
+  background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
+  padding-right: 80px;
+  padding-left: 80px;
+  min-width: 80vw;
 }
 
 h3,
 h2,
 h1 {
   color: #d1692a !important;
-  font-weight: 700;
 }
 
 .navbar {
@@ -93,12 +100,12 @@ form[method=post] button:hover,
 .intro {
   border-radius: 10px;
   padding: 20px;
-  background-color: rgba(179, 179, 179, 0.6);
+  background-color: rgba(179, 179, 179, 0.9);
   box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85), 50px 0 5em rgba(179, 179, 179, 0.85);
 }
 
 .services {
-  margin-top: 100px;
+  padding-top: 40px;
 }
 .services .services-list {
   margin-top: 50px;
@@ -202,6 +209,7 @@ form[method=post] button:hover,
 .copyright {
   background-color: transparent;
   margin: 15vw 0 1vw 0;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=base.css.map */

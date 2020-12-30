@@ -2,29 +2,31 @@
 
 {% block title "Accueil" %}
 
-{% block body %}
-
+{% block jumbotron %}
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container text-center intro">
-			<h1 class="display-4">Philippe J. Développeur PHP</h1>
+			<h1 class="display-4">Philippe J. &nbsp; Développeur PHP</h1>
 			<p class="lead">Applications PHP modernes répondants à vos besoins métiers.</p>
 			<p class="lead">Sites vitrines avec Wordpress</p>
 			<div class="intro-buttons">
 				<a class="btn btn-primary mx-3" href="#services-list" role="button">Nos services</a>
-				<a class="btn btn-primary mx-3" href="{{ path('contact') }} " role="button">En savoir plus sur moi</a>
+				<a class="btn btn-primary mx-3" href="{{ path('about') }} " role="button">En savoir plus sur moi</a>
 			</div>
 		</div>
 	</div>
+{% endblock %}
 
-	<section class="container services">
+{% block body %}
+	<section class="services">
 
 		{% for message in app.flashes('message') %}
 			<div class="flash-info">
 				<div class="alert alert-success">{{ message }}</div>
 			</div>
 		{% endfor %}
-
-		<h2 class="display-4 text-center" id="services-list">Nos Services</h2>
+		<div class="title mx-auto align-items-center mt-4">
+			<h1 class="display-4 text-center font-weight-bold" id="services-list">Nos Services</h1>
+		</div>
 
 		<div class="row services-list">
 			<div class="column col-xs-12 col-lg-4">
