@@ -9,92 +9,63 @@
 
 	{% set order = 1 %}
 
-	<div class="container">
-		{% set defaultPicture = null %}
-		{% set picturesArray = post.pictures %}
+	<div class="container post-show">
+		{% set mainPicture = null %}
+		{% set defaultPicture = asset('img/default-image.png') %}
 		{# loop in pictures to find picture with sort_order = 1 #}
-		{% for picture in picturesArray %}
+		{% for picture in post.pictures %}
 			{% if picture.sortOrder == 1 %}
-				{% set defaultPicture = picture %}
+				{% set mainPicture = picture %}
 			{% endif %}
 		{% endfor %}
 
-		{% set pictureJumbotron = defaultPicture ? " /img/" ~ defaultPicture.name : '' %}
 
-		<div class="display-5 font-weight-bold text-center my-4" style="background: url('{{ pictureJumbotron|default('../img/default-image.png') }}') no-repeat center;background-size: cover;background-position: center top;
-																																												height: 720px;">
+		<img class="main-picture" src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
+		<h3>{{post.title}}</h3>
 
-			<h3>{{post.title}}</h3>
-
-			{% if defaultPicture %}
-				<a data-toggle="collapse" href={{"#update_picture_input" ~ defaultPicture.id }} role="button" aria-expanded="false" aria-controls={{"update_picture_input" ~ defaultPicture.id }}>
-					<i class="fas fa-pencil-alt fa-2x" title="remplacer l'image"></i>
-				</a>
+		{% if mainPicture %}
+			<a data-toggle="collapse" href={{"#update_picture_input" ~ mainPicture.id }} role="button" aria-expanded="false" aria-controls={{"update_picture_input" ~ mainPicture.id }}>
+				<i class="fas fa-pencil-alt fa-2x" title="remplacer l'image"></i>
+			</a>
 
 
-				{#---------DELETE PICTURE---------#}
-				<a href="{{ path('picture_delete', { id: defaultPicture.id }) }}" data-delete>
-					<i class="fas fa-trash-alt fa-2x" title="supprimer l'image"></i>
-				</a>
+			{#---------DELETE PICTURE---------#}
+			<a href="{{ path('picture_delete', { id: mainPicture.id }) }}" data-delete>
+				<i class="fas fa-trash-alt fa-2x" title="supprimer l'image"></i>
+			</a>
 
-				{#!---------UPDATE PICTURE HIDDEN INPUT---------#}
-				<div class="collapse" id={{"update_picture_input" ~ defaultPicture.id }}>
-					<input type="file"/>
-					<div hidden>{{ defaultPicture.id }}</div>
-					<div hidden>{{ post.id }}</div>
-					<div hidden>{{ defaultPicture.sortOrder }}</div>
-					<!-- Picture sortOrder -->
-					<button data-update>Envoyer</button>
-				</div>
-			</div>
-			{% endif %}
-
-		<div class="container">
-			<p class="lead mt-4 mb-4 col-10 mx-auto">{{ post.description|nl2br }}</p>
-			<div class="row justify-content-center ">
-				<div class="col-lg-8">
-
-					<div class="row align-items-center meta-box mt-4 mb-4">
-
-						<div class="col">
-							<div class="meta">Créée le
-								{{ post.createdAt|date('d/m/Y') }}
-							</div>
-
-						</div>
-
-						<div class="col">
-							<div class="meta">Auteur:
-								{{ post.author.firstname ~ ' ' ~ post.author.lastname }}
-							</div>
-
-						</div>
-
-
-						<div class="col-sm-3 ">
-							<div class="meta">Dernière modif :<br>
-								{{post.createdAt|date('d/m/y')}}
-								à
-								{{post.createdAt|date('H:i')}}
-							</div>
-
-
-						</div>
-					</div>
-				</div>
+			{#!---------UPDATE PICTURE HIDDEN INPUT---------#}
+			<div class="collapse" id={{"update_picture_input" ~ mainPicture.id }}>
+				<input type="file"/>
+				<div hidden>{{ mainPicture.id }}</div>
+				<div hidden>{{ post.id }}</div>
+				<div hidden>{{ mainPicture.sortOrder }}</div>
+				<!-- Picture sortOrder -->
+				<button data-update>Envoyer</button>
 			</div>
 		</div>
+	{% endif %}
+	<p class="lead mt-4 mb-4 col-10 mx-auto">{{ post.description|nl2br }}</p>
+	<div class="row justify-content-center ">
+		<div class="col-lg-8">
 
+			<div class="row justify-content-center mt-4 mb-4">
 
-		<a class="btn btn-primary" href="http://snowtricks.philippe-j.fr">Allons voir</a>
-		{% if app.user %}
-			<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-			<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
-		{% endif %}
+				<div class="col-sm-8 text-center">
+					<div class="meta">{{ post.author.firstname ~ ' ' ~ post.author.lastname }}
+						&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
-{% endblock %}
 
-{% block javascripts %}
-	<script src=" {{ asset('js/media_delete.js') }} "></script>
-	<script src=" {{ asset('js/media_update.js') }} "></script>
-{% endblock %}
+
+	<a class="btn btn-primary" href="http://snowtricks.philippe-j.fr">Allons voir</a>
+	{% if app.user %}
+		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+		<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
+	{% endif %}
+</div>{% endblock %}{% block javascripts %}
+<script src=" {{ asset('js/media_delete.js') }} "></script>
+<script src=" {{ asset('js/media_update.js') }} "></script>{% endblock %}

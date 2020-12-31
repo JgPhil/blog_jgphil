@@ -145,24 +145,37 @@ form[method="post"] button,
   align-items: center;
 }
 
-.one_post div.card {
-  margin: 2vw 2vw 2vw 2vw;
-  border-style: none;
-  background-color: unset;
-  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
-  min-width: 250px;
-  & img {
-    &:hover {
-      opacity: 0.7;
+.one_post.col-xs-12 {
+  padding-left: 30px;
+  padding-right: 30px;
+  & div.card {
+    margin: 2vw 2vw 2vw 2vw;
+    border-style: none;
+    background-color: unset;
+    box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+    & img.card-img-top {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    & h4 a,
+    div.buttons i {
+      color: $cd-box;
+      &:hover {
+        color: $cd-txt;
+        text-decoration: none;
+      }
     }
   }
-  & h4 a,
-  div.buttons i {
-    color: $cd-box;
-    &:hover {
-      color: $cd-txt;
-      text-decoration: none;
-    }
+}
+
+.post-show {
+  & .main-picture {
+    width: 100%;
+    height: auto;
   }
 }
 

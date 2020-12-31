@@ -23,7 +23,7 @@
 						<div class="one_post col-xs-12 col-xl-6">
 							<div class="card">
 								<a href="{{ path( 'post_show', { id: post.id } ) }}">
-									<img class="card-img-top" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
+									<img class="card-img-top img-fluid" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 								</a>
 								<div class="card-body">
 									<h4 class="card-title">
