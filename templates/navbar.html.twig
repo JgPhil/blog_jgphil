@@ -30,6 +30,11 @@
 					Contact
 				</a>
 			</li>
+			<li {% if route_name == "about" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+				<a class="nav-link" href="{{ path('about') }}">
+					A propos
+				</a>
+			</li>
 
 
 			{% if app.user %}
