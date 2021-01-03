@@ -1,3 +1,5 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 $cd-txt: #3d200e;
 $cd-box: #d1692a;
 
@@ -16,6 +18,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background-size: cover;
+  @include font-size(1rem);
 }
 
 .main-body > .jumbotron {
@@ -59,8 +62,8 @@ h1 {
     }
   }
   & .nav-link {
-    font-size: 1.08rem;
     margin: 0 20px;
+    @include font-size(1rem);
   }
 }
 
@@ -85,6 +88,7 @@ form[method="post"] button,
   background-color: $cd-box;
   border: $cd-box;
   color: #fff;
+  @include font-size(1.5rem);
   &:hover {
     background-color: $cd-box;
     color: $cd-txt;
@@ -109,6 +113,12 @@ form[method="post"] button,
   background-color: rgba(179, 179, 179, 0.9);
   box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85),
     +50px 0 5em rgba(179, 179, 179, 0.85);
+  & h1 {
+    @include font-size(2rem);
+  }
+  & p {
+    @include font-size(1.5rem);
+  }
 }
 
 .services {
@@ -117,13 +127,14 @@ form[method="post"] button,
     margin-top: 50px;
     justify-content: center;
     & .column {
-      padding-right: 30px;
-      padding-left: 30px;
+      padding-right: 20px;
+      padding-left: 20px;
       min-height: 100%;
       padding-top: 30px;
       padding-bottom: 30px;
     }
     & .service {
+      @include font-size(1rem);
       border-radius: 5px;
       box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
       background-color: rgba(179, 179, 179, 0.6);
@@ -131,12 +142,19 @@ form[method="post"] button,
       min-height: 100%;
       & h4 {
         margin-top: 15px;
+        font-weight: bold;
+        @include font-size(1.75rem);
+        color: $cd-box;
       }
       & p {
         margin-top: 30px;
+        @include font-size(1.5rem);
       }
       & i {
         text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
@@ -223,7 +241,6 @@ form[method="post"] button,
   }
   & li {
     list-style: none;
-    font-size: 1.2rem;
   }
   & i.fab {
     color: $cd-box;

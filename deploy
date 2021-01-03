@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -av ./ hlir1790@philippe-j.fr:~/philippe-j.fr --include='.htaccess' --include=vendor --exclude-from=.gitignore --exclude=".*"
