@@ -85,9 +85,7 @@ h1 {
 
 form[method="post"] button,
 .intro-buttons a {
-  background-color: $cd-box;
   border: $cd-box;
-  color: #fff;
   @include font-size(1.5rem);
   &:hover {
     background-color: $cd-box;
@@ -188,7 +186,7 @@ form[method="post"] button,
     }
     & h4 a,
     div.buttons i {
-      color: $cd-box;
+      text-decoration: none;
       &:hover {
         color: $cd-txt;
         text-decoration: none;
