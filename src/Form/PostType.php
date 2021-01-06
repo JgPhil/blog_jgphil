@@ -24,13 +24,14 @@ class PostType extends AbstractType
                     'attr' => array('cols' => '5', 'rows' => '6')
                 ]
             )
-            ->add('pictures', FileType::class, [     
+            ->add('pictures', FileType::class, [
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false,
-                'allow_extra_fields'=> true
+                'allow_extra_fields' => true
             ])
+            ->add('link')
             ->add(
                 'submit',
                 SubmitType::class,

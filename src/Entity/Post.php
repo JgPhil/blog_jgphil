@@ -56,6 +56,11 @@ class Post
      */
     private $heading;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -165,6 +170,18 @@ class Post
     public function setHeading(?string $heading): self
     {
         $this->heading = $heading;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }
