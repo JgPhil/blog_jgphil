@@ -20,10 +20,7 @@ body {
   padding-top: 70px;
   font-family: "Ubuntu", sans-serif !important;
   background-color: #686767 !important; // linear-gradient(120deg, #c7c7c7, #d3d3d3);
-  width: 100%;
-  min-height: 100vh;
   background-size: cover;
-  @include font-size(1rem);
 }
 
 .main-body > .jumbotron {
@@ -202,21 +199,69 @@ form[method="post"] button,
   }
 }
 
-.post-show {
-  & .main-picture {
-    position: relative;
-    width: 100%;
-    max-width: 57rem;
-    height: auto;
-  }
+.post-wrapper {
+  max-width: 65rem;
+  margin: auto;
+}
+
+header.post-header {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 34rem;
   & .picture-buttons {
-    position: relative;
-    top: -18rem;
-    left: -7rem;
-  }
-  & h3 {
     position: absolute;
-    top: 6rem;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 22px;
+    margin-right: 27px;
+    & a {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+.post-heading {
+  max-width: 65rem;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.post-content {
+  max-width: 65rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.images-slide {
+  max-width: 65rem;
+  margin: auto;
+  margin-top: 2rem;
+  .carousel-item {
+    margin-top: 2rem;
+    height: 32rem;
+    position: relative;
+    background-color: #777777;
+    color: #f3f3f3;
+    & > .container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding-bottom: 50px;
+    }
+  }
+  & .overlay-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
   }
 }
 
@@ -243,7 +288,7 @@ form[method="post"] button,
   }
 }
 
-.meta {
+.social-section {
   background-color: #d3d3d3;
   border-radius: 10px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;

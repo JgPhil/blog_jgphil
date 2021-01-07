@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1">
 		{# <link rel="stylesheet" href=" {{ asset('/css/base.css') }}"> #}
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -24,19 +25,27 @@
 		<div class="main-body">
 			{% include "navbar.html.twig" %}
 			{% block jumbotron %}{% endblock %}
-			<div class="container-xl main-container"> {% block body %}{% endblock %}
+			<div
+				class="container-xl main-container">
+
+				{##  BODY  ##}
+				{% block body %}{% endblock %}
+
+
 				<footer class="text-center text-lg-start">
 					<div class="text-center p-3 copyright">
-						© 2020 Copyright:
-						<a class="text-dark" href="https://mdbootstrap.com/">philippe-j.fr</a>
+						© 2021 Copyright:
+						<a class="text-dark" href="https://philippe-j.fr/">philippe-j.fr</a>
 					</div>
 				</footer>
 			</div>
 		</div>
+
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 			<script src=" {{ asset('js/media_delete.js') }} "></script>
 			<script src=" {{ asset('js/media_update.js') }} "></script>
 		{% endblock %}
+
 	</body>
-</html></body></html>
+</html>

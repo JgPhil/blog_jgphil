@@ -19,64 +19,107 @@
 		{% endif %}
 	{% endfor %}
 
-	<header class="masthead post-show" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article ">
-
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<div class="post-heading">
-						<h1>{{post.title}}</h1>
-						<h2 class="subheading">{{post.heading}}</h2>
-						<span class="meta">Posté par {{post.author.firstname}}&nbsp{{post.author.lastname}} &nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}</div></span>
+	<div class="post-wrapper">
+		<header class="post-header" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article ">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-md-10 mx-auto">
+						<div class="post-heading text-center">
+							<h1 class="h1 text-center">{{post.title}}</h1>
+							<h2 class="h2 text-center subheading">{{post.heading}}</h2>
+							<span class="meta text-muted">Posté par
+								{{post.author.firstname}}&nbsp{{post.author.lastname}}
+								&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		{% if mainPicture %}
-			<a data-toggle="collapse" href={{"#update_picture_input" ~ mainPicture.id }} role="button" aria-expanded="false" aria-controls={{"update_picture_input" ~ mainPicture.id }}>
-				<i class="fas fa-pencil-alt fa-2x" title="remplacer l'image"></i>
-			</a>
-
-		{% endif %}
-		{#---------DELETE PICTURE---------#}
-		<a href="{{ path('picture_delete', { id: mainPicture.id }) }}" data-delete>
-			<i class="fas fa-trash-alt fa-2x" title="supprimer l'image"></i>
-		</a>
-
-		{#!---------UPDATE PICTURE HIDDEN INPUT---------#}
-		<div class="collapse" id={{"update_picture_input" ~ mainPicture.id }}>
-			<input type="file"/>
-			<div hidden>{{ mainPicture.id }}</div>
-			<div hidden>{{ post.id }}</div>
-			<div hidden>{{ mainPicture.sortOrder }}</div>
-			<!-- Picture sortOrder -->
-			<button data-update>Envoyer</button>
-		</div>
-	</header>
-
-	<p class="lead mt-4 mb-4 col-10 mx-auto">{{ post.description|nl2br }}</p>
-	<div class="row justify-content-center ">
-		<div class="col-lg-8">
-
-			<div class="row justify-content-center mt-4 mb-4">
-
-				<div class="col-sm-8 text-center">
-					<div class="meta">{{ post.author.firstname ~ ' ' ~ post.author.lastname }}
-						&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}</div>
-				</div>
-
+			<div class="picture-buttons">
+				{% if mainPicture %}
+					<a data-toggle="collapse" href={{"#update_picture_input" ~ mainPicture.id }} role="button" aria-expanded="false" aria-controls={{"update_picture_input" ~ mainPicture.id }}>
+						<i class="fas fa-pencil-alt fa-2x" title="remplacer l'image"></i>
+					</a>
+					<a href="{{ path('picture_delete', { id: mainPicture.id }) }}" data-delete>
+						<i class="fas fa-trash-alt fa-2x" title="supprimer l'image"></i>
+					</a>
+				{% endif %}
 			</div>
-		</div>
+
+			{#!---------UPDATE PICTURE HIDDEN INPUT---------#}
+			<div class="collapse" id={{"update_picture_input" ~ mainPicture.id|default('') }}>
+				<input type="file"/>
+				<div hidden>{{ mainPicture.id|default('') }}</div>
+				<div hidden>{{ post.id }}</div>
+				<div hidden>{{ mainPicture.sortOrder|default('') }}</div>
+				<!-- Picture sortOrder -->
+				<button data-update>Envoyer</button>
+			</div>
+		</header>
+
+		<section class="post-content mx-auto">
+			<p class="lead">
+				{{ post.description|nl2br }}
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit quidem nemo dolorum et saepe aut non at blanditiis, perspiciatis corporis quasi voluptatibus veritatis temporibus, dicta quo quos quia sit quas.
+																																																																		Ipsa debitis explicabo architecto fugiat deserunt magni neque maiores vel suscipit quia corrupti repellendus, minima nemo obcaecati adipisci hic animi eos similique sapiente? Iure incidunt, hic blanditiis veniam dolore in?
+																																																																		Natus ipsum sapiente necessitatibus rerum itaque voluptatibus hic modi ad iure commodi dolores placeat id minima, exercitationem neque expedita nesciunt ratione at quidem fugit fuga. Dolor cupiditate voluptas eligendi beatae?
+																																																																		Enim nemo mollitia omnis similique amet cum nisi dicta sit rerum consequuntur eius corrupti consectetur quaerat itaque dolor a illo ea, quisquam error facere eaque saepe quos fuga. Delectus, nobis.
+			</p>
+
+			<a class="btn btn-lg btn-primary" href={{post.link}}>Allons voir</a>
+			{% if app.user %}
+				<a class="btn btn-lg btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+				<a class="btn btn-lg btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
+			{% endif %}
+		</section>
+		
+		{# TODO compteur nombres images cadrage  (diagrammes) dans une boucle pour utiliser dans le slide
+																	{% set imagesCount =  %}
+																	#}
+		<section class="images-slide">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" {# data-interval="2000" #}>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="overlay-image" style="background-image:url('../../img/image1.jpg');"></div>
+						<div class="container">
+							<h1>Element 1</h1>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
+							<a href="#" class="btn btn-lg btn-primary">Check</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="overlay-image" style="background-image:url('../../img/image2.jpg');"></div>
+						<div class="container">
+							<h1>Element 2</h1>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
+							<a href="#" class="btn btn-lg btn-primary">Check</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="overlay-image" style="background-image:url('../../img/image3.jpg');"></div>
+						<div class="container">
+							<h1>Element 3</h1>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
+							<a href="#" class="btn btn-lg btn-primary">Check</a>
+						</div>
+					</div>
+				</div>
+				<a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</a>
+			</div>
+		</section>
 	</div>
 
-
-	<a class="btn btn-primary" href="http://snowtricks.philippe-j.fr">Allons voir</a>
-	{% if app.user %}
-		<a class="btn btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-		<a class="btn btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
-	{% endif %}
-</div>{% endblock %}{% block javascripts %}
-<script src=" {{ asset('js/media_delete.js') }} "></script>
-<script src=" {{ asset('js/media_update.js') }} "></script>{% endblock %}
+{% endblock %}
+{% block javascripts %}
+	<script src=" {{ asset('js/media_delete.js') }} "></script>
+	<script src=" {{ asset('js/media_update.js') }} "></script>
+{% endblock %}
