@@ -20,8 +20,8 @@
 	{% endfor %}
 
 	<div class="post-wrapper">
-		<header class="post-header" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article ">
-			<div class="overlay"></div>
+		<header class="post-header">
+			<div class="overlay" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article "></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-10 mx-auto">
@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="picture-buttons">
-				{% if mainPicture %}
+				{% if mainPicture  and app.user%}
 					<a data-toggle="collapse" href={{"#update_picture_input" ~ mainPicture.id }} role="button" aria-expanded="false" aria-controls={{"update_picture_input" ~ mainPicture.id }}>
 						<i class="fas fa-pencil-alt fa-2x" title="remplacer l'image"></i>
 					</a>
@@ -60,9 +60,17 @@
 		</header>
 
 		<section class="post-content mx-auto">
+			<h3 class="text-center">Contexte & description</h3>
 			<p class="lead">
 				{{ post.description|nl2br }}
 			</p>
+			<h3 class="text-center">Technologies</h3>
+
+			<div class="skill-icons">
+				{% for skill in post.skills %}
+					<img src="{{skill}}" alt="icon technology">
+				{% endfor %}
+			</div>
 
 			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
 				<i class="far fa-play-circle fa-3x"></i>
@@ -74,46 +82,44 @@
 		</section>
 
 		{# TODO compteur nombres images cadrage  (diagrammes) dans une boucle pour utiliser dans le slide
-																													{% set imagesCount =  %}
-																													#}
+																																																			{% set imagesCount =  %}
+																																																			#}
 		<section class="images-slide">
 			<h3 class="text-center">Cadrage du projet</h3>
 
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="20000000">
+			<div
+				id="myCarousel" class="carousel slide" data-ride="carousel">
+
+				{# Indicators #}
+				<ol class="carousel-indicators">
+					{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
+						{% if loop.first %}
+							{% set active = 'active' %}
+						{% else %}
+							{% set active = '' %}
+						{% endif %}
+						<li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}" class="{{ active }}"></li>
+					{% endfor %}
+				</ol>
+
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-
-						<div class="overlay-image" style="background-image:url('../../img/image1.jpg');">
-							<a href="#"></a>
+					{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
+						{% if loop.first %}
+							{% set active = 'active' %}
+						{% else %}
+							{% set active = '' %}
+						{% endif %}
+						{# carousel item #}
+						<div class="carousel-item {{active}}">
+							<div class="overlay-image" style="background-image:url('../../img/{{p.name}}');"></div>
+							<div class="container">
+								<h4>{{p.title}}</h4>
+								<p>{{p.description}}</p>
+							</div>
 						</div>
-						<div class="container">
-							<h4>Element 1</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="overlay-image" style="background-image:url('../../img/image2.jpg');">
-							<a href="#"></a>
-						</div>
-						<div class="container">
-							<h4>Element 2</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-
-						</div>
-					</div>
-					<div class="carousel-item">
-
-						<div class="overlay-image" style="background-image:url('../../img/image3.jpg');">
-							<a href="#"></a>
-						</div>
-						<div class="container">
-							<h4>Element 3</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-
-						</div>
-					</div>
+					{% endfor %}
 				</div>
+				{# Controls #}
 				<a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Previous</span>

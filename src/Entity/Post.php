@@ -61,6 +61,13 @@ class Post
      */
     private $link;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $skills = [];
+
+    
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -182,6 +189,18 @@ class Post
     public function setLink(?string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getSkills(): ?array
+    {
+        return $this->skills;
+    }
+
+    public function setSkills(?array $skills): self
+    {
+        $this->skills = $skills;
 
         return $this;
     }

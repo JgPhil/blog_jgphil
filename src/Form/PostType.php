@@ -4,10 +4,11 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -31,7 +32,11 @@ class PostType extends AbstractType
                 'required' => false,
                 'allow_extra_fields' => true
             ])
-            ->add('link')
+            ->add('link', TextType::class)
+            ->add('skills', SkillType::class,[
+                'mapped' => false,
+                'required' =>false
+            ])
             ->add(
                 'submit',
                 SubmitType::class,

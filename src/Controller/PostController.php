@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Post;
+use App\Entity\Skill;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use App\Services\PicturesHandler;
@@ -12,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Yaml\Yaml;
 
 class PostController extends AbstractController
 {
@@ -51,6 +53,16 @@ class PostController extends AbstractController
                 }
                 $picturesHandler->addPicture($picture, $post);
             }
+
+            ////---------- SkillList---------////
+            $post->setSkills(['']);
+            $skillsUrls = [];
+            $selectedSkills = array_filter($form->get('skills')->getData());
+            $skillListFile = Yaml::parseFile('../config/skills.yaml');
+            foreach ($selectedSkills as $k => $v) {
+                $skillsUrls[] = $skillListFile[$k];
+            }
+            $post->setSkills($skillsUrls);
             $em->persist($post);
             $em->flush();
 

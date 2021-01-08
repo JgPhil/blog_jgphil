@@ -206,10 +206,19 @@ form[method="post"] button,
 
 header.post-header {
   position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 34rem;
+  & .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    height: 34rem;
+  }
   & .picture-buttons {
     position: absolute;
     right: 0;
@@ -228,7 +237,21 @@ header.post-header {
   max-width: 65rem;
   margin: auto;
   margin-top: 4rem;
-  .carousel-item {
+  & h3 {
+    margin: 3rem;
+  }
+  & .skill-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 6rem;
+    & img {
+      width: 52px;
+      height: 52px;
+      margin: 1rem;
+    }
+  }
+  & .carousel-item {
     margin-top: 2rem;
     height: 32rem;
     position: relative;
@@ -276,11 +299,17 @@ header.post-header {
     right: 1rem;
     z-index: 2;
     border-radius: 35px;
-
+    animation: blinker 1s ease-in-out infinite alternate;
     @media (min-width: 1420px) {
       bottom: 5rem;
       right: 15rem;
     }
+  }
+}
+
+@keyframes blinker {
+  to {
+    opacity: 0;
   }
 }
 
