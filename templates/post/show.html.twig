@@ -62,47 +62,55 @@
 		<section class="post-content mx-auto">
 			<p class="lead">
 				{{ post.description|nl2br }}
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit quidem nemo dolorum et saepe aut non at blanditiis, perspiciatis corporis quasi voluptatibus veritatis temporibus, dicta quo quos quia sit quas.
-																																																																		Ipsa debitis explicabo architecto fugiat deserunt magni neque maiores vel suscipit quia corrupti repellendus, minima nemo obcaecati adipisci hic animi eos similique sapiente? Iure incidunt, hic blanditiis veniam dolore in?
-																																																																		Natus ipsum sapiente necessitatibus rerum itaque voluptatibus hic modi ad iure commodi dolores placeat id minima, exercitationem neque expedita nesciunt ratione at quidem fugit fuga. Dolor cupiditate voluptas eligendi beatae?
-																																																																		Enim nemo mollitia omnis similique amet cum nisi dicta sit rerum consequuntur eius corrupti consectetur quaerat itaque dolor a illo ea, quisquam error facere eaque saepe quos fuga. Delectus, nobis.
 			</p>
 
-			<a class="btn btn-lg btn-primary" href={{post.link}}>Allons voir</a>
+			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
+				<i class="far fa-play-circle fa-3x"></i>
+			</a>
 			{% if app.user %}
 				<a class="btn btn-lg btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
 				<a class="btn btn-lg btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
 			{% endif %}
 		</section>
-		
+
 		{# TODO compteur nombres images cadrage  (diagrammes) dans une boucle pour utiliser dans le slide
-																	{% set imagesCount =  %}
-																	#}
+																													{% set imagesCount =  %}
+																													#}
 		<section class="images-slide">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" {# data-interval="2000" #}>
+			<h3 class="text-center">Cadrage du projet</h3>
+
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="20000000">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<div class="overlay-image" style="background-image:url('../../img/image1.jpg');"></div>
+
+						<div class="overlay-image" style="background-image:url('../../img/image1.jpg');">
+							<a href="#"></a>
+						</div>
 						<div class="container">
-							<h1>Element 1</h1>
+							<h4>Element 1</h4>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-							<a href="#" class="btn btn-lg btn-primary">Check</a>
+
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="overlay-image" style="background-image:url('../../img/image2.jpg');"></div>
+						<div class="overlay-image" style="background-image:url('../../img/image2.jpg');">
+							<a href="#"></a>
+						</div>
 						<div class="container">
-							<h1>Element 2</h1>
+							<h4>Element 2</h4>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-							<a href="#" class="btn btn-lg btn-primary">Check</a>
+
 						</div>
 					</div>
 					<div class="carousel-item">
-						<div class="overlay-image" style="background-image:url('../../img/image3.jpg');"></div>
+
+						<div class="overlay-image" style="background-image:url('../../img/image3.jpg');">
+							<a href="#"></a>
+						</div>
 						<div class="container">
-							<h1>Element 3</h1>
+							<h4>Element 3</h4>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quas veritatis, modi vero vel</p>
-							<a href="#" class="btn btn-lg btn-primary">Check</a>
+
 						</div>
 					</div>
 				</div>

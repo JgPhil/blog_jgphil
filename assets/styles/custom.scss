@@ -222,28 +222,23 @@ header.post-header {
   }
 }
 
+.images-slide,
+.post-content,
 .post-heading {
   max-width: 65rem;
   margin: auto;
   margin-top: 4rem;
-}
-
-.post-content {
-  max-width: 65rem;
-  margin: auto;
-  margin-top: 2rem;
-}
-
-.images-slide {
-  max-width: 65rem;
-  margin: auto;
-  margin-top: 2rem;
   .carousel-item {
     margin-top: 2rem;
     height: 32rem;
     position: relative;
     background-color: #777777;
     color: #f3f3f3;
+    &:hover {
+      @media (min-width: 1420px) {
+        transform: scale(1.2);
+      }
+    }
     & > .container {
       position: absolute;
       bottom: 0;
@@ -262,6 +257,30 @@ header.post-header {
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.5;
+    & > a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  & a.app-button {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+    border-radius: 35px;
+
+    @media (min-width: 1420px) {
+      bottom: 5rem;
+      right: 15rem;
+    }
   }
 }
 
