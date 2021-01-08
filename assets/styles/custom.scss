@@ -229,6 +229,10 @@ header.post-header {
       margin: 0 0.5rem;
     }
   }
+  & .collapse.show {
+    bottom: 0px;
+    position: absolute;
+  }
 }
 
 .images-slide,
