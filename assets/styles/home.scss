@@ -1,0 +1,57 @@
+
+@import "keyframes.scss";
+
+.main-body > .jumbotron {
+  background: url("../../public/img/network.jpg") no-repeat top center;
+  background-size: cover;
+  height: 850px;
+  margin-bottom: 0;
+}
+
+.intro {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(179, 179, 179, 0.9);
+  box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85),
+    +50px 0 5em rgba(179, 179, 179, 0.85);
+}
+
+.services {
+  padding-top: 40px;
+  & .services-list {
+    margin-top: 50px;
+    margin-bottom: 104px;
+    justify-content: center;
+    & .column {
+      padding-right: 20px;
+      padding-left: 20px;
+      min-height: 100%;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    & .service {
+      border-radius: 5px;
+      box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
+      background-color: rgba(179, 179, 179, 0.6);
+      padding: 40px;
+      min-height: 100%;
+      @include font-size(1.2rem);
+      & h4 {
+        margin-top: 15px;
+        font-weight: bold;
+        @include font-size(1.75rem);
+        color: $cd-box;
+      }
+      & p {
+        margin-top: 30px;
+        @include font-size(1.2rem);
+      }
+      & i {
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

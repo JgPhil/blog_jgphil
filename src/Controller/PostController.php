@@ -8,6 +8,7 @@ use App\Entity\Skill;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use App\Services\PicturesHandler;
+use App\Services\SkillIconFetcher;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,16 +54,10 @@ class PostController extends AbstractController
                 }
                 $picturesHandler->addPicture($picture, $post);
             }
-
             ////---------- SkillList---------////
             $post->setSkills(['']);
-            $skillsUrls = [];
-            $selectedSkills = array_filter($form->get('skills')->getData());
-            $skillListFile = Yaml::parseFile('../config/skills.yaml');
-            foreach ($selectedSkills as $k => $v) {
-                $skillsUrls[] = $skillListFile[$k];
-            }
-            $post->setSkills($skillsUrls);
+            $skills = array_keys(array_filter($form->get('skills')->getData()));;
+            $post->setSkills($skills);
             $em->persist($post);
             $em->flush();
 
@@ -110,6 +105,8 @@ class PostController extends AbstractController
             }
             $post = $form->getData();
 
+            $skills = array_keys(array_filter($form->get('skills')->getData()));;
+            $post->setSkills($skills);
 
             $em->persist($post);
             $em->flush();
@@ -126,8 +123,10 @@ class PostController extends AbstractController
      */
     public function show(Post $post)
     {
+        $skills = SkillIconFetcher::getUrls($post);
         return $this->render('post/show.html.twig', [
-            'post' => $post
+            'post' => $post,
+            'skills' => $skills
         ]);
     }
 }

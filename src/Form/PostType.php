@@ -32,10 +32,12 @@ class PostType extends AbstractType
                 'required' => false,
                 'allow_extra_fields' => true
             ])
-            ->add('link', TextType::class)
-            ->add('skills', SkillType::class,[
+            ->add('link', TextType::class, [
+                'required' => false
+            ])
+            ->add('skills', SkillType::class, [
                 'mapped' => false,
-                'required' =>false
+                'required' => false
             ])
             ->add(
                 'submit',

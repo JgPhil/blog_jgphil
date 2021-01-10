@@ -1,0 +1,83 @@
+
+@import "keyframes.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  & body {
+    padding-top: 70px;
+    font-family: "Ubuntu", sans-serif !important;
+    background-color: #acacac !important; // linear-gradient(120deg, #c7c7c7, #d3d3d3);
+    background-size: cover;
+    & .navbar {
+      box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
+      background-color: $cd-txt;
+      & img {
+        position: relative;
+        height: 45px;
+        left: 15px;
+        background-size: contain;
+      }
+      & li {
+        transition: transform 200ms;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      & .nav-link {
+        margin: 0 20px;
+      }
+    }
+    & .main-body > .main-container {
+      background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
+      @media (min-width: 992px) {
+        padding-right: 80px;
+        padding-left: 80px;
+        min-width: 80vw;
+      }
+    }
+  }
+}
+
+.title {
+  border-radius: 15px;
+  box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
+  max-width: 30em;
+  padding: 20px;
+  margin-top: 2vw;
+  margin-bottom: 4vw;
+  color: #3f3c3a;
+  text-shadow: 1px 1px 5px #969696;
+}
+
+.content-block {
+  margin-bottom: 7vw;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  & .content-block-photo {
+    padding: 20px;
+    opacity: 0.8;
+  }
+  & .content-block-text {
+    padding: 20px;
+    a.btn {
+      background-color: $cd-box;
+      border: $cd-box;
+      &:hover {
+        background-color: $cd-txt;
+        color: white;
+        box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
+      }
+    }
+  }
+}
+
+.copyright {
+  background-color: transparent;
+  margin: 15vw 0 1vw 0;
+  margin-bottom: 0;
+}

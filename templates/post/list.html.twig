@@ -17,13 +17,25 @@
 				</div>
 			{% endif %}
 
-			<div class="posts">
+
+			<section class="posts">
 				<div class="row justify-content-center">
+
 					{% for post in posts %}
+						{% set order = 1 %}
+						{% set mainPicture = null %}
+						{% set defaultPicture = asset('img/default-image.png') %}
+						{# loop in pictures to find picture with sort_order = 1 #}
+						{% for picture in post.pictures %}
+							{% if picture.sortOrder == 1 %}
+								{% set mainPicture = picture %}
+							{% endif %}
+						{% endfor %}
+
 						<div class="one_post col-xs-12 col-xl-4">
-							<div class="card">
+							<div class="card card-block">
 								<a href="{{ path( 'post_show', { id: post.id } ) }}">
-									<img class="card-img-top img-fluid" src="{{ '/img/' ~ post.pictures.first.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
+									<img class="card-img-top img-fluid" src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 								</a>
 								<div class="card-body">
 									<h4 class="card-title">
@@ -51,8 +63,7 @@
 						</div>
 					{% endfor %}
 				</div>
-			</div>
+			</section>
 		</div>
 	</div>
-
 {% endblock %}
