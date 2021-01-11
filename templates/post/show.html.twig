@@ -65,11 +65,12 @@
 				</p>
 				<h3 class="h3 font-weight-bold">Technologies</h3>
 
-				<div class="skill-icons">
+				<div class="row-cols-4 skill-icons">
 					{% for skill in skills %}
-						<img src="{{skill}}" alt="icon technology">
+						<img class="col mx-auto my-3 h-auto" src="{{skill}}" alt="icon technology">
 					{% endfor %}
 				</div>
+
 			</div>
 			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
 				<i class="far fa-play-circle fa-3x"></i>
@@ -83,7 +84,7 @@
 
 		{% if post.pictures | length > 1 %}
 			<section class="images-slide">
-				<h3 class="text-center">Cadrage du projet</h3>
+				<h3 class="text-center font-weight-bold">Cadrage du projet</h3>
 
 				<div
 					id="myCarousel" class="carousel slide" data-ride="carousel">

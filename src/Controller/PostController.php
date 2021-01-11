@@ -47,7 +47,7 @@ class PostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $pictures = $form->get('pictures')->getData();
             foreach ($pictures as $picture) {
-                $errors = $picturesHandler->checkPictures($picture);
+                $errors = $picturesHandler->checkPicture($picture);
                 if (!empty($errors[0])) {
                     $this->addFlash('danger', $errors);
                     return $this->redirectToRoute('post_list');
@@ -96,7 +96,7 @@ class PostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $pictures = $form->get('pictures')->getData();
             foreach ($pictures as $picture) {
-                $errors = $picturesHandler->checkPictures($picture);
+                $errors = $picturesHandler->checkPicture($picture);
                 if (!empty($errors[0])) {
                     $this->addFlash('danger', $errors);
                     return $this->redirectToRoute('post_list');

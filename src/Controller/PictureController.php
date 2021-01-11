@@ -51,7 +51,7 @@ class PictureController extends AbstractController
         PicturesHandler $pictureHandler,
         PictureRepository $pictureRepo,
         EntityManagerInterface $manager,
-         PostRepository $postRepo
+        PostRepository $postRepo
     ) {
 
         $oldPictureId = $request->request->get('oldPictureId');
@@ -60,10 +60,10 @@ class PictureController extends AbstractController
         $postId = $request->request->get('postId');
         $post = $postRepo->find($postId);
         $pictureFile = $request->files->get('file');
-        $errors = $pictureHandler->checkPictures($pictureFile);
+        $errors = $pictureHandler->checkPicture($pictureFile);
         if (!empty($errors[0])) {
             $this->addFlash('danger', $errors);
-            return $this->redirectToRoute('post_show',[
+            return $this->redirectToRoute('post_show', [
                 'id' => $postId,
                 'message' =>   $errors[0]
             ]);
@@ -75,7 +75,7 @@ class PictureController extends AbstractController
         $newPicture->setPost($post);
         $newPicture->setName($filename);
         $post->addPicture($newPicture);
-        $pictureHandler->delete($oldPicture);        
+        $pictureHandler->delete($oldPicture);
         $manager->remove($oldPicture);
         $manager->flush();
 
@@ -98,20 +98,26 @@ class PictureController extends AbstractController
      */
     public function addPostPictures(Post $post, Request $request, PicturesHandler $picturesHandler)
     {
-        $pictureFile = $request->files->get('file');
-        $errors = $picturesHandler->checkPictures($pictureFile);
-        if (!empty($errors[0])) {
-            $this->addFlash('danger', $errors);
-            return $this->redirectToRoute('post_show',[
-                'id' => $post->getId(),
-                'message' =>   $errors[0]
-            ]);
+
+        foreach ($request->files->get('file') as $file) {
+            $errors = $picturesHandler->checkPicture($file);
+            if (!empty($errors[0])) {
+                $this->addFlash('danger', $errors);
+                return $this->redirectToRoute('post_show', [
+                    'id' => $post->getId(),
+                    'message' =>   $errors[0]
+                ]);
+            }
+            $filename = $picturesHandler->rename($file);
+            $picturesHandler->movePicture($file, $filename);
+            $newPicture = new Picture();
+            $newPicture->setPost($post);
+            $newPicture->setName($filename);
+
         }
-        $filename = $picturesHandler->rename($pictureFile);
-        $picturesHandler->movePicture($pictureFile, $filename);
-        $newPicture = new Picture();
-      //  $newPicture->setSortOrder($oldPictureSortOrder);
-        $newPicture->setPost($post);
-        $newPicture->setName($filename);
+
+
+        //  $newPicture->setSortOrder($oldPictureSortOrder);
+
     }
 }

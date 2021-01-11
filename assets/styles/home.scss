@@ -4,13 +4,18 @@
 .main-body > .jumbotron {
   background: url("../../public/img/network.jpg") no-repeat top center;
   background-size: cover;
-  height: 54vw;
+  min-height: 54rem;
   margin-bottom: 0;
+  min-height: 45rem;
+  @media (min-width: 1200px) {
+    min-height: 54rem;
+  }
 }
 
 .intro {
+  margin-top: 3rem;
+  padding: 2rem;
   border-radius: 10px;
-  padding: 20px;
   background-color: rgba(179, 179, 179, 0.9);
   box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85),
     +50px 0 5em rgba(179, 179, 179, 0.85);

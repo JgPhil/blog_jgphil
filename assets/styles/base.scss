@@ -69,13 +69,33 @@ html {
   & .content-block-text {
     padding: 20px;
     a.btn {
-      background-color: $cd-box;
-      border: $cd-box;
+      background-color: $cd-txt;
+      border: $cd-txt;
       &:hover {
-        background-color: $cd-txt;
+        background-color: $cd-box;
         color: white;
         box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
       }
+    }
+  }
+}
+
+
+.social-section {
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  padding: 1em 1em 1em 1em;
+  & ul {
+    margin-bottom: 0;
+  }
+  & li {
+    list-style: none;
+  }
+  & i.fab {
+    color: $primary;
+    &:hover {
+      color: $secondary;
     }
   }
 }

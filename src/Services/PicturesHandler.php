@@ -39,7 +39,7 @@ class PicturesHandler
         );
     }
 
-    public function checkPictures(File $picture): array
+    public function checkPicture(File $picture): array
     {
         $errors = [];
         if (empty($picture)) {

@@ -32,6 +32,10 @@ header.post-header {
   }
 }
 
+.post-content {
+  margin-bottom: 3rem;
+}
+
 .post-wrapper {
   max-width: 65rem;
   margin: auto;
@@ -42,7 +46,7 @@ header.post-header {
 }
 
 .images-slide {
-  max-width: 65rem;
+  max-width: 47vw;
   margin: auto;
   margin-top: 4rem;
   &:hover {
@@ -50,10 +54,11 @@ header.post-header {
     }
   }
   & h3 {
-    margin: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
   & .carousel-item {
-    margin-top: 2rem;
+    margin-top: 3rem;
     height: 39rem;
     position: relative;
     background-color: #777777;
@@ -74,7 +79,7 @@ header.post-header {
     top: 0;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     opacity: 0.8;
     & > a {
       position: absolute;
@@ -104,38 +109,6 @@ a.app-button {
   }
 }
 
-.skill-icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 6rem 4rem;
-  & img {
-    width: 52px;
-    height: 52px;
-    margin: 15px;
-    @media (max-width: 900px) {
-      width: 35px;
-      height: 35px;
-      margin: 12px;
-    }
-  }
-}
-
-.social-section {
-  background-color: #d3d3d3;
-  border-radius: 10px;
-  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
-  padding: 1em 1em 1em 1em;
-  & ul {
-    margin-bottom: 0;
-  }
-  & li {
-    list-style: none;
-  }
-  & i.fab {
-    color: $primary;
-    &:hover {
-      color: $secondary;
-    }
-  }
+.skill-icons img {
+  width: 5rem;
 }
