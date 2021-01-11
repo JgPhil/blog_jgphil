@@ -123,7 +123,10 @@ class PostController extends AbstractController
      */
     public function show(Post $post)
     {
-        $skills = SkillIconFetcher::getUrls($post);
+        $skills = [];
+        if (!empty($post->getSkills())) {
+            $skills = SkillIconFetcher::getUrls($post);
+        }
         return $this->render('post/show.html.twig', [
             'post' => $post,
             'skills' => $skills

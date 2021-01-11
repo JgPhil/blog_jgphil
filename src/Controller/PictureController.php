@@ -87,4 +87,31 @@ class PictureController extends AbstractController
             200
         );
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param Post $post
+     * @param Request $request
+     * @return void
+     * @Route("/add-pictures/post/{id}", name="picture_add")
+     */
+    public function addPostPictures(Post $post, Request $request, PicturesHandler $picturesHandler)
+    {
+        $pictureFile = $request->files->get('file');
+        $errors = $picturesHandler->checkPictures($pictureFile);
+        if (!empty($errors[0])) {
+            $this->addFlash('danger', $errors);
+            return $this->redirectToRoute('post_show',[
+                'id' => $post->getId(),
+                'message' =>   $errors[0]
+            ]);
+        }
+        $filename = $picturesHandler->rename($pictureFile);
+        $picturesHandler->movePicture($pictureFile, $filename);
+        $newPicture = new Picture();
+      //  $newPicture->setSortOrder($oldPictureSortOrder);
+        $newPicture->setPost($post);
+        $newPicture->setName($filename);
+    }
 }

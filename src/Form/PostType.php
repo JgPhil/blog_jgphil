@@ -22,7 +22,7 @@ class PostType extends AbstractType
                 'description',
                 TextareaType::class,
                 [
-                    'attr' => array('cols' => '5', 'rows' => '6')
+                    'attr' => array('cols' => '5', 'rows' => '26')
                 ]
             )
             ->add('pictures', FileType::class, [

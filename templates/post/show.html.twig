@@ -60,8 +60,8 @@
 		<section class="post-content mx-auto">
 			<div class="col text-center">
 				<h3 class="h3 font-weight-bold">Contexte & description</h3>
-				<p class="lead">
-					{{ post.description|nl2br }}
+				<p class="lead text-left">
+					{{ post.description|raw | nl2br}}
 				</p>
 				<h3 class="h3 font-weight-bold">Technologies</h3>
 
@@ -75,60 +75,62 @@
 				<i class="far fa-play-circle fa-3x"></i>
 			</a>
 			{% if app.user %}
+				<a class="btn btn-lg btn-primary" href="{{ path('picture_add', {id:post.id}) }}">Ajouter des images</a>
 				<a class="btn btn-lg btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
 				<a class="btn btn-lg btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
 			{% endif %}
 		</section>
 
-		{# TODO compteur nombres images cadrage  (diagrammes) dans une boucle pour utiliser dans le slide
-																																																									{% set imagesCount =  %}
-																																																									#}
-		<section class="images-slide">
-			<h3 class="text-center">Cadrage du projet</h3>
+		{% if post.pictures | length > 1 %}
+			<section class="images-slide">
+				<h3 class="text-center">Cadrage du projet</h3>
 
-			<div
-				id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div
+					id="myCarousel" class="carousel slide" data-ride="carousel">
 
-				{# Indicators #}
-				<ol class="carousel-indicators">
-					{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
-						{% if loop.first %}
-							{% set active = 'active' %}
-						{% else %}
-							{% set active = '' %}
-						{% endif %}
-						<li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}" class="{{ active }}"></li>
-					{% endfor %}
-				</ol>
+					{# Indicators #}
+					<ol class="carousel-indicators">
+						{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
+							{% if loop.first %}
+								{% set active = 'active' %}
+							{% else %}
+								{% set active = '' %}
+							{% endif %}
+							<li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}" class="{{ active }}"></li>
+						{% endfor %}
+					</ol>
 
-				<div class="carousel-inner">
-					{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
-						{% if loop.first %}
-							{% set active = 'active' %}
-						{% else %}
-							{% set active = '' %}
-						{% endif %}
-						{# carousel item #}
-						<div class="carousel-item {{active}}">
-							<a href="#" class="overlay-image" style="background-image:url('../../img/{{p.name}}');"></a>
-							<div class="container">
-								<h4>{{p.title}}</h4>
-								<p>{{p.description}}</p>
+					<div class="carousel-inner">
+						{% for p in post.pictures|filter(p => p.sortOrder != 1) %}
+							{% if loop.first %}
+								{% set active = 'active' %}
+							{% else %}
+								{% set active = '' %}
+							{% endif %}
+							{# carousel item #}
+							<div class="carousel-item {{active}}">
+								<a href="#" class="overlay-image" style="background-image:url('../../img/{{p.name}}');"></a>
+								<div class="container">
+									<h4>{{p.title}}</h4>
+									<p>{{p.description}}</p>
+								</div>
 							</div>
-						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
+					{# Controls #}
+					<a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</a>
+					<a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</a>
 				</div>
-				{# Controls #}
-				<a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</a>
-				<a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</a>
-			</div>
-		</section>
+			</section>
+			{% elseif app.user %}
+
+		{% endif %}
 	</div>
 
 {% endblock %}
