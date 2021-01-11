@@ -1,9 +1,9 @@
-
 @import "keyframes.scss";
 
 header.post-header {
   position: relative;
   height: 34rem;
+  margin-bottom: 3rem;
   & .overlay {
     position: absolute;
     top: 0;
@@ -32,10 +32,13 @@ header.post-header {
   }
 }
 
-
 .post-wrapper {
   max-width: 65rem;
   margin: auto;
+  & h3 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .images-slide {
@@ -44,7 +47,6 @@ header.post-header {
   margin-top: 4rem;
   &:hover {
     @media (min-width: 1420px) {
-      transform: scale(1.2);
     }
   }
   & h3 {
@@ -52,7 +54,7 @@ header.post-header {
   }
   & .carousel-item {
     margin-top: 2rem;
-    height: 32rem;
+    height: 39rem;
     position: relative;
     background-color: #777777;
     color: #f3f3f3;
@@ -73,7 +75,7 @@ header.post-header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.5;
+    opacity: 0.8;
     & > a {
       position: absolute;
       top: 0;
@@ -84,20 +86,21 @@ header.post-header {
       height: 100%;
     }
   }
-  & a.app-button {
-    width: 70px;
-    height: 70px;
-    padding: 10px;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 2;
-    border-radius: 35px;
-    animation: blinker 1s ease-in-out infinite alternate;
-    @media (min-width: 1420px) {
-      bottom: 5rem;
-      right: 15rem;
-    }
+}
+
+a.app-button {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+  border-radius: 35px;
+  animation: blinker 1s ease-in-out infinite alternate;
+  @media (min-width: 1420px) {
+    bottom: 5rem;
+    right: 15rem;
   }
 }
 
@@ -105,7 +108,7 @@ header.post-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 6rem;
+  margin: 2rem 6rem 4rem;
   & img {
     width: 52px;
     height: 52px;
@@ -115,12 +118,6 @@ header.post-header {
       height: 35px;
       margin: 12px;
     }
-  }
-}
-
-@keyframes blinker {
-  to {
-    opacity: 0;
   }
 }
 

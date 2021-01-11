@@ -24,15 +24,13 @@
 			<div class="overlay" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article "></div>
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 col-md-10 mx-auto">
-						<div class="post-heading text-center">
-							<h1 class="h1 text-center">{{post.title}}</h1>
-							<h2 class="h2 text-center subheading">{{post.heading}}</h2>
-							<span class="meta text-muted">Posté par
-								{{post.author.firstname}}&nbsp{{post.author.lastname}}
-								&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
-							</span>
-						</div>
+					<div class="col-lg-8 col-md-10 text-center mx-auto">
+						<h1 class="h1 mt-4 font-weight-bold">{{post.title}}</h1>
+						<h2 class="h2 subheading">{{post.heading}}</h2>
+						<span class="meta text-muted">Posté par
+							{{post.author.firstname}}&nbsp{{post.author.lastname}}
+							&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
+						</span>
 					</div>
 				</div>
 			</div>
@@ -60,18 +58,19 @@
 		</header>
 
 		<section class="post-content mx-auto">
-			<h3 class="text-center">Contexte & description</h3>
-			<p class="lead">
-				{{ post.description|nl2br }}
-			</p>
-			<h3 class="text-center">Technologies</h3>
+			<div class="col text-center">
+				<h3 class="h3 font-weight-bold">Contexte & description</h3>
+				<p class="lead">
+					{{ post.description|nl2br }}
+				</p>
+				<h3 class="h3 font-weight-bold">Technologies</h3>
 
-			<div class="skill-icons">
-				{% for skill in skills %}
-					<img src="{{skill}}" alt="icon technology">
-				{% endfor %}
+				<div class="skill-icons">
+					{% for skill in skills %}
+						<img src="{{skill}}" alt="icon technology">
+					{% endfor %}
+				</div>
 			</div>
-
 			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
 				<i class="far fa-play-circle fa-3x"></i>
 			</a>
@@ -82,8 +81,8 @@
 		</section>
 
 		{# TODO compteur nombres images cadrage  (diagrammes) dans une boucle pour utiliser dans le slide
-																																																			{% set imagesCount =  %}
-																																																			#}
+																																																									{% set imagesCount =  %}
+																																																									#}
 		<section class="images-slide">
 			<h3 class="text-center">Cadrage du projet</h3>
 
@@ -111,7 +110,7 @@
 						{% endif %}
 						{# carousel item #}
 						<div class="carousel-item {{active}}">
-							<div class="overlay-image" style="background-image:url('../../img/{{p.name}}');"></div>
+							<a href="#" class="overlay-image" style="background-image:url('../../img/{{p.name}}');"></a>
 							<div class="container">
 								<h4>{{p.title}}</h4>
 								<p>{{p.description}}</p>

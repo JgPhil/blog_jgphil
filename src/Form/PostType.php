@@ -36,8 +36,10 @@ class PostType extends AbstractType
                 'required' => false
             ])
             ->add('skills', SkillType::class, [
+                'label' => false,
                 'mapped' => false,
-                'required' => false
+                'required' => false,
+                'attr' => array()
             ])
             ->add(
                 'submit',
