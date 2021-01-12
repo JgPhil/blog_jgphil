@@ -76,7 +76,7 @@
 				<i class="far fa-play-circle fa-3x"></i>
 			</a>
 			{% if app.user %}
-				<a class="btn btn-lg btn-primary" href="{{ path('picture_add', {id:post.id}) }}">Ajouter des images</a>
+				<a class="btn btn-lg btn-primary" href="{{ post.github }}">code source et doc</a>
 				<a class="btn btn-lg btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
 				<a class="btn btn-lg btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
 			{% endif %}
