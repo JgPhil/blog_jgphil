@@ -75,12 +75,37 @@
 			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
 				<i class="far fa-play-circle fa-3x"></i>
 			</a>
-			{% if app.user %}
-				<a class="btn btn-lg btn-primary" href="{{ post.github }}">code source et doc</a>
-				<a class="btn btn-lg btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-				<a class="btn btn-lg btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
-			{% endif %}
 		</section>
+
+		<div class="row-cols-4 justify-content-center">
+			<div class="col mx-auto my-4">
+				{% if post.githubLink %}
+					<a class="btn btn-primary" href="{{ post.githubLink }}">
+						<i class="fab fa-github fa-2x"></i>
+					</a>
+					Code source
+				{% endif %}
+			</div>
+			<div class="col mx-auto my-4">
+				{% if post.documentation %}
+					<a class="btn btn-primary" href="{{ post.documentation }}">
+						<i class="fas fa-book-reader fa-2x"></i>
+					</a>
+					Documentation
+				{% endif %}
+			</div>
+
+
+			{% if app.user %}
+				<div class="col mx-auto my-4">
+					<a class="btn btn-sm btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
+				</div>
+				<div class="col mx-auto my-4">
+					<a class="btn btn-sm btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
+				</div>
+
+			{% endif %}
+		</div>
 
 		{% if post.pictures | length > 1 %}
 			<section class="images-slide">

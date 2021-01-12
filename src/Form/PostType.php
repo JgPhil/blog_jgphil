@@ -33,6 +33,15 @@ class PostType extends AbstractType
                 'allow_extra_fields' => true
             ])
             ->add('link', TextType::class, [
+                'label' => 'hebergement',
+                'required' => false
+            ])
+            ->add('githubLink', TextType::class, [
+                'label' => 'github',
+                'required' => false
+            ])
+            ->add('documentation', TextType::class, [
+                'label' => 'documentation',
                 'required' => false
             ])
             ->add('skills', SkillType::class, [

@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class SkillType extends AbstractType
 {
@@ -27,6 +29,10 @@ class SkillType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            /* 'data_class' => function (FormInterface $form) {
+                return new Post($form->get('skills')->getData()); 
+            },*/
+        ]);
     }
 }

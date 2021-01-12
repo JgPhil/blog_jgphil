@@ -16,8 +16,16 @@
 			{{ form_row(form.title) }}
 			{{ form_row(form.description) }}
 			{{ form_row(form.pictures) }}
-			{{ form_row(form.skills) }}
 			{{ form_row(form.link) }}
+			{{ form_row(form.githubLink) }}
+			{{ form_row(form.documentation) }}
+			<div class="row">
+				{% for skill in form.skills %}
+					<div class="col-sm-3">
+						{{form_row(skill)}}
+					</div>
+				{% endfor %}
+			</div>
 			<div class="col d-flex justify-content-end align-items-center form-group">
 				{{ form_widget(form.submit)}}
 			</div>

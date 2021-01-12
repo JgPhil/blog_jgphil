@@ -66,6 +66,16 @@ class Post
      */
     private $skills = [];
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $githubLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $documentation;
+
     
 
     public function __construct()
@@ -201,6 +211,30 @@ class Post
     public function setSkills(?array $skills): self
     {
         $this->skills = $skills;
+
+        return $this;
+    }
+
+    public function getGithubLink(): ?string
+    {
+        return $this->githubLink;
+    }
+
+    public function setGithubLink(?string $githubLink): self
+    {
+        $this->githubLink = $githubLink;
+
+        return $this;
+    }
+
+    public function getDocumentation(): ?string
+    {
+        return $this->documentation;
+    }
+
+    public function setDocumentation(?string $documentation): self
+    {
+        $this->documentation = $documentation;
 
         return $this;
     }
