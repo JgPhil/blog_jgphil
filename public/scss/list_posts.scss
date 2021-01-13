@@ -1,0 +1,55 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "keyframes.scss";
+
+.new_post_btn {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & a.btn {
+    border: $cd-box;
+    &:hover {
+      background-color: $cd-txt;
+      color: white;
+      box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
+      transform: scale(1.01);
+    }
+  }
+}
+
+section.posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  & .one_post.col-xs-12.col-xl-4 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    & .card {
+      margin: 2vw 2vw 2vw 2vw;
+      border-style: none;
+      background-color: unset;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+      transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+        0.3s box-shadow,
+        0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+      & img.card-img-top {
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+      }
+      & h4 a,
+      div.buttons i {
+        text-decoration: none;
+        &:hover {
+          color: $cd-txt;
+          text-decoration: none;
+        }
+      }
+    }
+    & .card:hover {
+      transform: scale(1.03);
+      box-shadow: 6px 6px 40px #b3b3b3, -6px -6px 40px #cccccc;
+    }
+  }
+}

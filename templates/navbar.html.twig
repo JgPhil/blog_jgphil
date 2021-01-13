@@ -1,18 +1,14 @@
 {% set route_name = app.request.attributes.get('_route') %}
 
 
-
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
 
 	<a class="navbar-brand" href={{ path('home') }}>
 		<img src="{{ asset('img/logo.png') }}" alt="logo"/>
 	</a>
-
-	<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-
-
 	<div id="navbar" class="collapse navbar-collapse">
 		<ul class="navbar-nav ml-auto justify-content-end text-right">
 			<li {% if route_name == "home" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
@@ -53,7 +49,6 @@
 			{% endif %}
 
 		</ul>
-
 	</div>
 	<!--/.nav-collapse -->
 </nav>

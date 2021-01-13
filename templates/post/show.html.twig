@@ -72,9 +72,11 @@
 				</div>
 
 			</div>
-			<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
-				<i class="far fa-play-circle fa-3x"></i>
-			</a>
+			{% if post.link is not null %}
+				<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
+					<i class="far fa-play-circle fa-3x"></i>
+				</a>
+			{% endif %}
 		</section>
 
 		<div class="row-cols-4 justify-content-center">

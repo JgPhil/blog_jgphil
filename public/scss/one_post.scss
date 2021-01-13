@@ -1,0 +1,114 @@
+@import "keyframes.scss";
+
+header.post-header {
+  position: relative;
+  height: 34rem;
+  margin-bottom: 3rem;
+  & .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    height: 34rem;
+  }
+  & .picture-buttons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 22px;
+    margin-right: 27px;
+    & a {
+      margin: 0 0.5rem;
+    }
+  }
+  & .collapse.show {
+    bottom: 0px;
+    position: absolute;
+  }
+}
+
+.post-content {
+  margin-bottom: 3rem;
+}
+
+.post-wrapper {
+  max-width: 65rem;
+  margin: auto;
+  & h3 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.images-slide {
+  max-width: 47vw;
+  margin: auto;
+  margin-top: 4rem;
+  &:hover {
+    @media (min-width: 1420px) {
+    }
+  }
+  & h3 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  & .carousel-item {
+    margin-top: 3rem;
+    height: 39rem;
+    position: relative;
+    background-color: #777777;
+    color: #f3f3f3;
+    & > .container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding-bottom: 50px;
+    }
+  }
+  & .overlay-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    & > a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+a.app-button {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+  border-radius: 35px;
+  animation: blinker 1s ease-in-out infinite alternate;
+  @media (min-width: 1420px) {
+    bottom: 5rem;
+    right: 15rem;
+  }
+}
+
+.skill-icons img {
+  width: 5rem;
+}

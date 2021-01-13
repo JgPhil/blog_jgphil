@@ -1,0 +1,12 @@
+@import "keyframes.scss";
+
+form[method="post"] button,
+.intro-buttons a {
+  border: $cd-box;
+  @include font-size(1.5rem);
+  &:hover {
+    background-color: $cd-txt;
+    color: white;
+    box-shadow: 1px 1px 4px #8b8582, -1px -1px 5px #faefe8;
+  }
+}

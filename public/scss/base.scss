@@ -1,7 +1,4 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
-$cd-txt: #3d200e;
-$cd-box: #d1692a;
+@import "keyframes.scss";
 
 * {
   box-sizing: border-box;
@@ -9,204 +6,59 @@ $cd-box: #d1692a;
 
 html {
   scroll-behavior: smooth;
-}
+  & body {
+    padding-top: 70px;
+    font-family: "Ubuntu", sans-serif !important;
+  //  background: linear-gradient(185deg, #c87728, #f3e84b);
+    background-size: 400% 400%;
 
-body {
-  padding-top: 70px;
-  font-family: "Ubuntu", sans-serif !important;
-  background-color: #686767 !important; // linear-gradient(120deg, #c7c7c7, #d3d3d3);
-  width: 100%;
-  min-height: 100vh;
-  background-size: cover;
-  @include font-size(1rem);
-}
-
-.main-body > .jumbotron {
-  background: url("../img/network.jpg") no-repeat top center;
-  background-size: cover;
-  height: 850px;
-  margin-bottom: 0;
-}
-
-.main-body > .main-container {
-  background: linear-gradient(120deg, #c7c7c7, #d3d3d3);
-  padding-right: 80px;
-  padding-left: 80px;
-  min-width: 80vw;
-}
-
-.a-propos {
-  padding-top: 5em;
-}
-
-h3,
-h2,
-h1 {
-  color: $cd-box !important;
-}
-
-.navbar {
-  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
-  background-color: $cd-box;
-  & img {
-    position: relative;
-    height: 45px;
-    left: 15px;
-    background-size: contain;
-  }
-  & li {
-    transform: scale(1);
-    transition: transform 200ms;
-    &:hover {
-      transform: scale(1.1);
+    -webkit-animation: backgroundAnimation 9s ease infinite;
+    -moz-animation: backgroundAnimation 9s ease infinite;
+    animation: backgroundAnimation 9s ease infinite;
+    background-size: cover;
+    & .navbar {
+      box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
+      background-color: $cd-txt;
+      & img {
+        position: relative;
+        height: 45px;
+        left: 15px;
+        background-size: contain;
+      }
+      & li {
+        transition: transform 200ms;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      & .nav-link {
+        margin: 0 20px;
+      }
     }
-  }
-  & .nav-link {
-    margin: 0 20px;
-    @include font-size(1rem);
-  }
-}
-
-.new_post_btn {
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & a.btn {
-    background-color: $cd-box;
-    border: $cd-box;
-    &:hover {
-      background-color: $cd-box;
-      color: $cd-txt;
-      box-shadow: 1px 1px 4px #8b8582, -1px -2px 5px #faefe8;
+    & .main-body > .main-container {
+      background: lightgrey;
+      @media (min-width: 992px) {
+        padding-right: 80px;
+        padding-left: 80px;
+        min-width: 80vw;
+      }
     }
-  }
-}
-
-form[method="post"] button,
-.intro-buttons a {
-  border: $cd-box;
-  @include font-size(1.5rem);
-  &:hover {
-    background-color: $cd-box;
-    color: $cd-txt;
-    box-shadow: 1px 1px 4px #8b8582, -1px -1px 5px #faefe8;
   }
 }
 
 .title {
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
   max-width: 30em;
   padding: 20px;
   margin-top: 2vw;
-  margin-bottom: 1vw;
+  margin-bottom: 4vw;
   color: #3f3c3a;
   text-shadow: 1px 1px 5px #969696;
 }
 
-.intro {
-  border-radius: 10px;
-  padding: 20px;
-  background-color: rgba(179, 179, 179, 0.9);
-  box-shadow: -50px 0 5em rgba(179, 179, 179, 0.85),
-    +50px 0 5em rgba(179, 179, 179, 0.85);
-  & h1 {
-    @include font-size(2rem);
-  }
-  & p {
-    @include font-size(1.5rem);
-  }
-}
-
-.services {
-  padding-top: 40px;
-  & .services-list {
-    margin-top: 50px;
-    justify-content: center;
-    & .column {
-      padding-right: 20px;
-      padding-left: 20px;
-      min-height: 100%;
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-    & .service {
-      @include font-size(1rem);
-      border-radius: 5px;
-      box-shadow: 5px 5px 25px #8b8582, -5px -5px 25px #faefe8;
-      background-color: rgba(179, 179, 179, 0.6);
-      padding: 40px;
-      min-height: 100%;
-      & h4 {
-        margin-top: 15px;
-        font-weight: bold;
-        @include font-size(1.75rem);
-        color: $cd-box;
-      }
-      & p {
-        margin-top: 30px;
-        @include font-size(1.5rem);
-      }
-      & i {
-        text-align: center;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  }
-}
-
-.posts {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.one_post.col-xs-12 {
-  padding-left: 30px;
-  padding-right: 30px;
-  & div.card {
-    margin: 2vw 2vw 2vw 2vw;
-    border-style: none;
-    background-color: unset;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
-    transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-      0.3s box-shadow,
-      0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-    & img.card-img-top {
-      width: 100%;
-      height: 15rem;
-      object-fit: cover;
-      &:hover {
-        opacity: 0.7;
-      }
-    }
-    & h4 a,
-    div.buttons i {
-      text-decoration: none;
-      &:hover {
-        color: $cd-txt;
-        text-decoration: none;
-      }
-    }
-  }
-  & .card:hover {
-    transform: scale(1.03);
-    box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
-  }
-}
-
-.post-show {
-  & .main-picture {
-    width: 100%;
-    height: auto;
-  }
-}
-
 .content-block {
+  margin-bottom: 7vw;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
@@ -217,23 +69,23 @@ form[method="post"] button,
   & .content-block-text {
     padding: 20px;
     a.btn {
-      background-color: $cd-box;
-      border: $cd-box;
+      background-color: $cd-txt;
+      border: $cd-txt;
       &:hover {
         background-color: $cd-box;
-        color: $cd-txt;
+        color: white;
         box-shadow: 1px 1px 4px #3f3c3a, -1px -2px 5px #faefe8;
       }
     }
   }
 }
 
-.meta {
-  margin-top: 5vw;
+
+.social-section {
   background-color: #d3d3d3;
   border-radius: 10px;
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
-  padding: 1em 1em 1em 1em;
+  padding: 4rem;
   & ul {
     margin-bottom: 0;
   }
@@ -241,9 +93,9 @@ form[method="post"] button,
     list-style: none;
   }
   & i.fab {
-    color: $cd-box;
+    color: $primary;
     &:hover {
-      color: $cd-txt;
+      color: $secondary;
     }
   }
 }
