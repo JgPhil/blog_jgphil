@@ -2,53 +2,54 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-
-	<a class="navbar-brand" href={{ path('home') }}>
-		<img src="{{ asset('img/logo.png') }}" alt="logo"/>
-	</a>
-	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div id="navbar" class="collapse navbar-collapse">
-		<ul class="navbar-nav ml-auto justify-content-end text-right">
-			<li {% if route_name == "home" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
-				<a class="nav-link" href="{{ path('home') }}">
-					Accueil
-				</a>
-			</li>
-			<li {% if route_name == "post_list" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
-				<a class="nav-link" href="{{ path('post_list') }}">
-					Projets
-				</a>
-			</li>
-			<li {% if route_name == "contact" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
-				<a class="nav-link" href="{{ path('contact') }}">
-					Contact
-				</a>
-			</li>
-			<li {% if route_name == "about" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
-				<a class="nav-link" href="{{ path('about') }}">
-					A propos
-				</a>
-			</li>
-
-			{% if not app.user %}
-				<li {% if route_name == "app_login" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
-					<a class="nav-link" href="{{ path('app_login') }}">
-						Se connecter
+	<div class="container">
+		<a class="navbar-brand" href={{ path('home') }}>
+			<img src="{{ asset('img/logo.png') }}" alt="logo"/>
+		</a>
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto justify-content-end text-right">
+				<li {% if route_name == "home" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+					<a class="nav-link" href="{{ path('home') }}">
+						Accueil
 					</a>
 				</li>
-			{% else %}
-
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_logout') }}">
-						Se déconnecter
+				<li {% if route_name == "post_list" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+					<a class="nav-link" href="{{ path('post_list') }}">
+						Projets
+					</a>
+				</li>
+				<li {% if route_name == "contact" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+					<a class="nav-link" href="{{ path('contact') }}">
+						Contact
+					</a>
+				</li>
+				<li {% if route_name == "about" %} class="nav-item active font-weight-bold" {% else %} class="nav-item" {% endif %}>
+					<a class="nav-link" href="{{ path('about') }}">
+						A propos
 					</a>
 				</li>
 
-			{% endif %}
+				{% if not app.user %}
+					<li {% if route_name == "app_login" %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+						<a class="nav-link" href="{{ path('app_login') }}">
+							Se connecter
+						</a>
+					</li>
+				{% else %}
 
-		</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">
+							Se déconnecter
+						</a>
+					</li>
+
+				{% endif %}
+
+			</ul>
+		</div>
 	</div>
 	<!--/.nav-collapse -->
 </nav>

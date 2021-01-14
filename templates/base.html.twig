@@ -28,6 +28,7 @@
 			<div
 				class="container-xl px-0 main-container">
 
+
 				{##  BODY  ##}
 				{% block body %}{% endblock %}
 
@@ -41,9 +42,12 @@
 		</div>
 
 		{% block javascripts %}
+			<script>
+				$(document).on('scroll', function (e) {
+$('nav').toggleClass('scrolled', ($(this).scrollTop() > 250));
+});
+			</script>
 			{{ encore_entry_script_tags('app') }}
-			<script src=" {{ asset('js/media_delete.js') }} "></script>
-			<script src=" {{ asset('js/media_update.js') }} "></script>
 		{% endblock %}
 
 	</body>

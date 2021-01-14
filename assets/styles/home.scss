@@ -2,7 +2,7 @@
 
 .main-body > .header {
   z-index: 1;
-  min-height: 54rem;
+
   min-height: 45rem;
   @media (min-width: 1200px) {
     min-height: 54rem;
@@ -20,11 +20,13 @@
     background-size: cover;
     background-attachment: fixed;
     background-origin: border-box;
+    padding-top: 4rem;
     & .container {
       height: 30rem;
     }
   }
   & .header_right {
+    padding-top: 4rem;
     background-color: $secondary;
     /* background-image: url("../../public/img/pastel.png"); */
     background-repeat: no-repeat;
