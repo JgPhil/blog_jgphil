@@ -9,13 +9,6 @@ html {
   & body {
     padding-top: 70px;
     font-family: "Ubuntu", sans-serif !important;
-  //  background: linear-gradient(185deg, #c87728, #f3e84b);
-    background-size: 400% 400%;
-
-    -webkit-animation: backgroundAnimation 9s ease infinite;
-    -moz-animation: backgroundAnimation 9s ease infinite;
-    animation: backgroundAnimation 9s ease infinite;
-    background-size: cover;
     & .navbar {
       box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
       background-color: #f3f3f3;
@@ -36,7 +29,6 @@ html {
       }
     }
     & .main-body > .main-container {
-      background: lightgrey;
       @media (min-width: 992px) {
         padding-right: 80px;
         padding-left: 80px;
@@ -83,10 +75,10 @@ html {
 
 .social-section {
   width: 70%;
-  background-color: #d3d3d3;
   border-radius: 10px;
-  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #f3f3f3;
+  box-shadow: 2px 3px 10px #b3b3b3;
   padding: 4rem;
+  margin-bottom: 3rem;
   & ul {
     margin-bottom: 0;
   }
@@ -103,6 +95,5 @@ html {
 
 .copyright {
   background-color: transparent;
-  margin: 15vw 0 1vw 0;
   margin-bottom: 0;
 }
