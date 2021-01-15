@@ -1,3 +1,3 @@
 $(document).on('scroll', function (e) {
-  $('nav').toggleClass('scrolled', ($(this).scrollTop() /500));
+$('nav').toggleClass('scrolled', ($(this).scrollTop() > 150));
 });

@@ -10,11 +10,12 @@ html {
     background-color: #f3f3f3;
     font-family: "Ubuntu", sans-serif !important;
     & .navbar {
-      box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
+      box-shadow: none;
       background-color: transparent;
-      transition: 0.8s ease;
+      transition: 1.3s ease;
       &.scrolled {
         background-color: #f3f3f3;
+        box-shadow: 0 0 15px 5px rgba(90, 90, 90, 0.2);
       }
       & img {
         position: relative;
@@ -75,7 +76,6 @@ html {
     }
   }
 }
-
 
 .social-section {
   width: 70%;

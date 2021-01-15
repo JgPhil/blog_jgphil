@@ -5,7 +5,7 @@
 {% block jumbotron %}
 	<div class="header">
 		<div class="row mx-0">
-			<div class="col-xs-12 col-md-7 d-flex justify-content-center align-items-center header_left">
+			<div class="col-xs-12 col-md-6 d-flex justify-content-center align-items-center header_left">
 				<div class="content text-center my-auto">
 					{% for message in app.flashes('message') %}
 						<div class="flash-info">
@@ -15,17 +15,18 @@
 					<img class="logo" src="{{asset('img/logo.png')}}" alt="" width="300px" height="300px">
 
 					<h1 class="display-5 text-muted">Philippe J. &nbsp; Développeur PHP</h1>
+					<h4 class="opentowork text-primary d-flex flex-column">#OPENTOWORK</h4>
+					<a class="btn btn-primary mx-3 cv_button" href="cv-Philippe-Jaming.pdf" role="button">Allez voir mon CV</a>
 				</div>
 			</div>
-			<div class=" col-xs-12 col-md-5 d-flex align-items-center header_right">
+			<div class=" col-xs-12 col-md-6 d-flex align-items-center header_right">			
 				<div
 					class="my-auto mx-auto">
-					{# <img src="{{asset('img/geometry1.png')}}" alt=""> #}
 					<div class="content d-flex flex-column justify-content-center">
-						<p class="h1 text-muted">Création de sites webs et d'applications PHP sur mesure</p>
+					{# <img src="{{asset('img/type.jpg')}}" alt="machine à écrire"> #}
+						<p class="h1 text-muted">Sites webs et applications PHP sur mesure</p>
 						<div class="intro-buttons text-center">
 							<a class="btn btn-primary" href="#services-list" role="button">Services</a>
-							<a class="btn btn-primary" href="{{ path('about') }} " role="button">a propos</a>
 						</div>
 					</div>
 				</div>
@@ -38,61 +39,102 @@
 	<section class="services">
 
 		<div class="mx-auto text-muted align-items-center mt-4">
-			<h2 class="display-4 text-center font-weight-bold" id="services-list">Nos Services</h2>
+			<h2 class="display-4 text-center font-weight-bold" id="services-list">Services</h2>
 		</div>
 
 		<div class="row services-list">
 			<div class="column col-xs-12 col-xl-4">
 				<div class="service">
-					<i class="fab fa-wordpress fa-3x"></i>
-					<h4 class="text-center text-primary">Wordpress</h4>
-					<p>Pour vos sites vitrine, nous vous proposons la mise en place et la personnalisation de votre site avec WordPress.</p>
+					<div class="row d-flex flex-column">
+						<div class="col-xs-12">
+							<i class="fab fa-wordpress fa-3x"></i>
+							<h4 class="text-center text-primary">
+								<span class="text-dark">Sites vitrine et e-commerce</span><br>Wordpress</h4>
+						</div>
+						<div class="col-xs-12">
+							<p>
+								<ul>
+									<li>Mise en place et personnalisation de votre site avec WordPress pour commerçants, associations, artistes.</li>
+									<li>Philippe.J est votre atout pour améliorer la présence numérique de votre entreprise</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 			<div class="column col-xs-12 col-xl-4">
 				<div class="service">
-					<i class="fab fa-symfony fa-3x"></i>
-					<h4 class="text-center text-primary">&ltyes&gt</h4>
-					<p>Un besoin spécifique ? Nous pouvons vous développer une application sur-mesure avec le Framework Symfony.</p>
+					<div class="row d-flex flex-column">
+						<div class="col-xs-12">
+							<i class="fab fa-symfony fa-3x"></i>
+							<h4 class="text-center text-primary">
+								<span class="text-dark">Développement d'applications</span><br>PHP</h4>
+						</div>
+						<div class="col-xs-12">
+							<p>Pour un besoin plus spécifique, Philippe J. vous propose:
+								<ul>
+									<li>un accompagnement personnalisé</li>
+									<li>le développement d'une application sur-mesure répondant à vos attentes avec le Framework Symfony</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 			<div class="column col-xs-12 col-xl-4">
 				<div class="service">
-					<i class="far fa-life-ring fa-3x"></i>
-					<h4 class="text-center text-primary">Support</h4>
-					<p>Nous pouvons vous apporter notre expertise, notre aide ou notre support dans votre utilisation des outils numérique.</p>
+
+					<div class="row d-flex flex-column">
+						<div class="col-xs-12">
+							<i class="far fa-life-ring fa-3x"></i>
+							<h4 class="text-center text-primary">
+								<span class="text-dark">Support et aide</span><br>Assistance</h4>
+						</div>
+						<div class="col-xs-12">
+						<br>
+							<ul>
+								<li>Une expertise professionelle pour vous apporter une aide ciblée</li>
+								<li>Une analyse complète et efficace pour vous apporter une solution rapide</li>
+							</ul>
+					</div>
 				</div>
+
+
 			</div>
 		</div>
+	</div>
 
-		<div class="row social-section mx-auto">
+	<div class="row social-section mx-auto">
 
-			<div class="col d-flex align-items-center justify-content-center">
-				<a href="https://github.com/JgPhil">
-					<i class="fab fa-github-square fa-3x mx-3"></i>
-				</a>
-				<a href="https://www.linkedin.com/in/philippe-j-61a477194/">
-					<i class="fab fa-linkedin fa-3x mx-3"></i>
-				</a>
-				<a href="https://twitter.com/JamingPhilippe">
-					<i class="fab fa-twitter fa-3x mx-3"></i>
-				</a>
-			</div>
-
-			<div class="col-xs-12 col-md-6 d-flex align-items-center justify-content-center">
-				<ul>
-					<li class="my-3">
-						<i class="fa fa-map-marker mr-4" aria-hidden="true"></i>
-						Alsace, Moselle</li>
-					<li class="my-3">
-						<i class="fas fa-envelope mr-4"></i>
-						jamingph@gmail.com</li>
-					<li class="my-3">
-						<i class="fa fa-phone mr-4" aria-hidden="true"></i>
-						tel: 06 74 25 72 29</li>
-				</ul>
-			</div>
-
+		<div class="col d-flex align-items-center justify-content-center">
+			<a href="https://github.com/JgPhil">
+				<i class="fab fa-github-square fa-3x mx-3"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/philippe-j-61a477194/">
+				<i class="fab fa-linkedin fa-3x mx-3"></i>
+			</a>
+			<a href="https://twitter.com/JamingPhilippe">
+				<i class="fab fa-twitter fa-3x mx-3"></i>
+			</a>
 		</div>
-	</section>
-{% endblock %}
+
+		<div class="col-xs-12 col-md-6 d-flex align-items-center justify-content-center">
+			<ul>
+				<li class="my-3">
+					<i class="fa fa-map-marker mr-4" aria-hidden="true"></i>
+					Alsace, Moselle</li>
+				<li class="my-3">
+					<i class="fas fa-envelope mr-4"></i>
+					jamingph@gmail.com</li>
+				<li class="my-3">
+					<i class="fa fa-phone mr-4" aria-hidden="true"></i>
+					tel: 06 74 25 72 29</li>
+			</ul>
+		</div>
+
+	</div>
+</section>{% endblock %}

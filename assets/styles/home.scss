@@ -2,14 +2,13 @@
 
 .main-body > .header {
   z-index: 1;
-
-  min-height: 45rem;
+  min-height: 75rem;
   @media (min-width: 1200px) {
     min-height: 54rem;
   }
   & .row {
     width: 100%;
-    height: 54rem;
+    height: 57rem;
   }
   & .logo {
     margin-bottom: 2rem;
@@ -21,28 +20,70 @@
     background-attachment: fixed;
     background-origin: border-box;
     padding-top: 4rem;
+    & {
+      @media (max-width: 992px) {
+        padding-top: 10rem;
+      }
+    }
     & .container {
       height: 30rem;
     }
+    & .cv_button {
+      border: thick double white;
+      position: absolute;
+      right: -4.1rem;
+      z-index: 2;
+      border-radius: 56px;
+      height: 100px;
+      width: 100px;
+      bottom: 5rem;
+      @media (max-width: 767px) {
+        right: 38%;
+        bottom: -4rem;
+      }
+    }
+    & .opentowork {
+      writing-mode: tb-rl;
+      transform: rotate(-180deg);
+      position: absolute;
+      top: 10rem;
+      font-size: 2.6rem;
+      right: -3.8rem;
+      opacity: 0.5;
+    }
   }
+
   & .header_right {
+    position: relative;
     padding-top: 4rem;
     background-color: $secondary;
-    /* background-image: url("../../public/img/pastel.png"); */
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;
     background-origin: border-box;
     background-position: right;
+    &::before {
+      content:"";
+      background-image: url("../../public/img/desk2.jpg");
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.3;
+    }
   }
   & .content {
     height: 30rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
     & p {
+      position: relative;
       margin-bottom: 2rem;
     }
     & .intro-buttons {
+      position: relative;
       & a {
         margin-top: 2rem;
         margin-left: 1rem;

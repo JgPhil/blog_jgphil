@@ -10,8 +10,8 @@ import './styles/app.scss';
 
 var $ = require('jquery');
 
-import '../public/js/media_delete.js'
-import '../public/js/media_update.js'
+// import '../public/js/media_delete.js'
+// import '../public/js/media_update.js'
 import '../public/js/navbar.js'
 
 // You can specify which plugins you need
