@@ -19,11 +19,11 @@
 					<a class="btn btn-primary mx-3 cv_button" href="cv-Philippe-Jaming.pdf" role="button">Allez voir mon CV</a>
 				</div>
 			</div>
-			<div class=" col-xs-12 col-md-6 d-flex align-items-center header_right">			
-				<div
-					class="my-auto mx-auto">
-					<div class="content d-flex flex-column justify-content-center">
-					{# <img src="{{asset('img/type.jpg')}}" alt="machine à écrire"> #}
+			<div class=" col-xs-12 col-md-6 d-flex align-items-center header_right">
+				<div class="my-auto mx-auto">
+					<div
+						class="content d-flex flex-column justify-content-center">
+						{# <img src="{{asset('img/type.jpg')}}" alt="machine à écrire"> #}
 						<p class="h1 text-muted">Sites webs et applications PHP sur mesure</p>
 						<div class="intro-buttons text-center">
 							<a class="btn btn-primary" href="#services-list" role="button">Services</a>
@@ -37,104 +37,78 @@
 
 {% block body %}
 	<section class="services">
-
 		<div class="mx-auto text-muted align-items-center mt-4">
 			<h2 class="display-4 text-center font-weight-bold" id="services-list">Services</h2>
 		</div>
-
 		<div class="row services-list">
 			<div class="column col-xs-12 col-xl-4">
-				<div class="service">
-					<div class="row d-flex flex-column">
-						<div class="col-xs-12">
-							<i class="fab fa-wordpress fa-3x"></i>
-							<h4 class="text-center text-primary">
-								<span class="text-dark">Sites vitrine et e-commerce</span><br>Wordpress</h4>
-						</div>
-						<div class="col-xs-12">
-							<p>
-								<ul>
-									<li>Mise en place et personnalisation de votre site avec WordPress pour commerçants, associations, artistes.</li>
-									<li>Philippe.J est votre atout pour améliorer la présence numérique de votre entreprise</li>
-								</ul>
-							</p>
-						</div>
+				<div class="card service">
+					<i class="fab fa-wordpress fa-3x"></i>
+					<h4 class="card-title text-center text-primary">
+						<span class="text-dark">Sites vitrine et e-commerce</span><br>Wordpress</h4>
+					<div class="card-body">
+						<ul>
+							<li>Mise en place et personnalisation de votre site avec WordPress pour commerçants, associations, artistes.</li>
+							<li>Philippe.J est votre atout pour améliorer la présence numérique de votre entreprise</li>
+						</ul>
 					</div>
-
-
 				</div>
 			</div>
 			<div class="column col-xs-12 col-xl-4">
-				<div class="service">
-					<div class="row d-flex flex-column">
-						<div class="col-xs-12">
-							<i class="fab fa-symfony fa-3x"></i>
-							<h4 class="text-center text-primary">
-								<span class="text-dark">Développement d'applications</span><br>PHP</h4>
-						</div>
-						<div class="col-xs-12">
-							<p>Pour un besoin plus spécifique, Philippe J. vous propose:
-								<ul>
-									<li>un accompagnement personnalisé</li>
-									<li>le développement d'une application sur-mesure répondant à vos attentes avec le Framework Symfony</li>
-								</ul>
-							</p>
-						</div>
+				<div class="card service">
+					<i class="fab fa-symfony fa-3x"></i>
+					<h4 class="card-title text-center text-primary">
+						<span class="text-dark">Développement d'applications</span><br>PHP</h4>
+					<div class="card-body">
+						<ul>
+							<li>Analyse et cadrage des spécifications de votre projet</li>
+							<li>un accompagnement personnalisé</li>
+							<li>le développement d'une application sur-mesure répondant à vos attentes avec le Framework Symfony</li>
+						</ul>
 					</div>
-
-
 				</div>
 			</div>
 			<div class="column col-xs-12 col-xl-4">
-				<div class="service">
-
-					<div class="row d-flex flex-column">
-						<div class="col-xs-12">
-							<i class="far fa-life-ring fa-3x"></i>
-							<h4 class="text-center text-primary">
-								<span class="text-dark">Support et aide</span><br>Assistance</h4>
-						</div>
-						<div class="col-xs-12">
-						<br>
-							<ul>
-								<li>Une expertise professionelle pour vous apporter une aide ciblée</li>
-								<li>Une analyse complète et efficace pour vous apporter une solution rapide</li>
-							</ul>
+				<div class="card service">
+					<i class="far fa-life-ring fa-3x"></i>
+					<h4 class="card-title text-center text-primary">
+						<span class="text-dark">Support et Assistance</span><br>Outils numériques</h4>
+					<div class="card-body">
+						<ul>
+							<li>Une expertise professionelle pour vous apporter une aide ciblée</li>
+							<li>Une analyse complète et efficace pour vous apporter une solution rapide</li>
+						</ul>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
-	</div>
+		<div class="row social-section mx-auto">
+			<div class="col d-flex align-items-center justify-content-center">
+				<a href="https://github.com/JgPhil">
+					<i class="fab fa-github-square fa-3x mx-3"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/philippe-j-61a477194/">
+					<i class="fab fa-linkedin fa-3x mx-3"></i>
+				</a>
+				<a href="https://twitter.com/JamingPhilippe">
+					<i class="fab fa-twitter fa-3x mx-3"></i>
+				</a>
+			</div>
 
-	<div class="row social-section mx-auto">
+			<div class="col-xs-12 col-md-6 d-flex align-items-center justify-content-center">
+				<ul>
+					<li class="my-3">
+						<i class="fa fa-map-marker mr-4" aria-hidden="true"></i>
+						Alsace, Moselle</li>
+					<li class="my-3">
+						<i class="fas fa-envelope mr-4"></i>
+						jamingph@gmail.com</li>
+					<li class="my-3">
+						<i class="fa fa-phone mr-4" aria-hidden="true"></i>
+						tel: 06 74 25 72 29</li>
+				</ul>
+			</div>
 
-		<div class="col d-flex align-items-center justify-content-center">
-			<a href="https://github.com/JgPhil">
-				<i class="fab fa-github-square fa-3x mx-3"></i>
-			</a>
-			<a href="https://www.linkedin.com/in/philippe-j-61a477194/">
-				<i class="fab fa-linkedin fa-3x mx-3"></i>
-			</a>
-			<a href="https://twitter.com/JamingPhilippe">
-				<i class="fab fa-twitter fa-3x mx-3"></i>
-			</a>
 		</div>
-
-		<div class="col-xs-12 col-md-6 d-flex align-items-center justify-content-center">
-			<ul>
-				<li class="my-3">
-					<i class="fa fa-map-marker mr-4" aria-hidden="true"></i>
-					Alsace, Moselle</li>
-				<li class="my-3">
-					<i class="fas fa-envelope mr-4"></i>
-					jamingph@gmail.com</li>
-				<li class="my-3">
-					<i class="fa fa-phone mr-4" aria-hidden="true"></i>
-					tel: 06 74 25 72 29</li>
-			</ul>
-		</div>
-
-	</div>
-</section>{% endblock %}
+	</section>
+{% endblock %}
