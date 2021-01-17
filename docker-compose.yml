@@ -40,6 +40,8 @@ services:
         container_name: www_docker_symfony
         ports:
           - "8741:80"
+        environment:
+            XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9000 remote_enable=1
         volumes:
             - ./php/vhosts:/etc/apache2/sites-enabled
             - ./:/var/www
