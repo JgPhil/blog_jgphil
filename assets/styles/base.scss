@@ -10,7 +10,7 @@ html {
   & body {
     height: 100%;
     background-color: #f3f3f3;
-    font-family: "Ubuntu", sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
     & .navbar {
       box-shadow: none;
       background-color: transparent;
@@ -42,6 +42,10 @@ html {
         min-width: 80vw;
       }
     }
+  & h1, h2 {
+    font-family: 'Raleway';
+    font-weight: 700;
+  } 
   }
 }
 
@@ -80,11 +84,10 @@ html {
 }
 
 .social-section {
-  width: 70%;
+  width: 80%;
   border-radius: 10px;
-  box-shadow: 2px 3px 10px #b3b3b3;
   padding: 4rem;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
   & ul {
     margin-bottom: 0;
   }
