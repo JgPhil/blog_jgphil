@@ -68,7 +68,7 @@ section.posts {
     & .text {
       display: grid;
       grid-template-rows: 1fr 1fr;
-      background-color: #fff;
+      background-color: $test1;
       position: relative;
       padding: 1rem;
       flex-basis: 50%;
