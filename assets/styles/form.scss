@@ -3,7 +3,6 @@
 form[method="post"] button,
 .intro-buttons a {
   border: $cd-box;
-  @include font-size(1.5rem);
   &:hover {
     background-color: $cd-txt;
     color: white;
