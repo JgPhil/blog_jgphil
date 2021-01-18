@@ -102,6 +102,11 @@ section.posts {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: repeat(5, 1fr);
+        grid-gap: 12px;
+        & .skill {
+          max-width: 80%;
+          height: auto;
+        }
       }
     }
   }

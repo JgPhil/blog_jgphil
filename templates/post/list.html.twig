@@ -29,7 +29,8 @@
 			{% endfor %}
 
 			<div class="post">
-				<div class="text">
+
+				<div class="text"> 
 					<div class="half1">
 						<div class="deco_line"></div>
 						<h4>
@@ -38,11 +39,13 @@
 						<h5>{{post.heading }}</h5>
 					</div>
 					<div class="half2">
-					{# {% for skill in skills %}
+					
+					{% for skill in post.skills | icon_url %}
 						<img class="skill" src="{{skill}}" alt="icon technology">
-					{% endfor %} #}
+					{% endfor %}
 					</div>
 				</div>
+
 				<div class="img">
 					<a href="{{ path( 'post_show', { id: post.id } ) }}">
 						<img src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
