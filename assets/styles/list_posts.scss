@@ -64,6 +64,9 @@ section.posts {
         flex-basis: 50%;
         flex-shrink: 0;
         object-fit: cover;
+        &:hover {
+          filter: brightness(0.92);
+        }
       }
     }
     & .text {
