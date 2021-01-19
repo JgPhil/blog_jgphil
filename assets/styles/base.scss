@@ -5,7 +5,7 @@
 }
 
 html {
-  scroll-behavior: smooth!important;
+  scroll-behavior: smooth !important;
   & body {
     line-height: 1.7;
     height: 100%;
@@ -92,12 +92,17 @@ html {
   }
 }
 
-.social-section {
-  min-width: 60vw;
+.row.social-section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60vw;
   width: auto;
-  border-radius: 10px;
-  padding: 2rem;
-  margin-top: 3rem;
+  & .socials {
+    min-height: 5rem;
+  }
+  & .infos {
+    padding: 0;
+  }
   & ul {
     margin-bottom: 0;
     padding: 0;
