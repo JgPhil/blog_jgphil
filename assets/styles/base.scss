@@ -5,12 +5,12 @@
 }
 
 html {
-  height: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth!important;
   & body {
+    line-height: 1.7;
     height: 100%;
     background-color: #f3f3f3;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Lato", sans-serif;
     & .navbar {
       box-shadow: none;
       background-color: transparent;
@@ -35,17 +35,26 @@ html {
         margin: 0 20px;
       }
     }
-    & .main-body > .main-container {
-      @media (min-width: 992px) {
-        padding-right: 80px;
-        padding-left: 80px;
-        min-width: 80vw;
-      }
+
+    & .meta {
+      font-size: smaller;
+      color: gray;
     }
-  & h1, h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-  } 
+    & h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    & h3 {
+      font-size: 2.25rem;
+      font-weight: 800;
+    }
+    h2 {
+      font-family: "Monserrat", sans-serif;
+      font-weight: 800;
+    }
+    & p {
+      font-size: 1.2rem;
+    }
   }
 }
 

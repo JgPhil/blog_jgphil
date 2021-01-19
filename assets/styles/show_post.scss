@@ -1,114 +1,148 @@
 @import "keyframes.scss";
 
-header.post-header {
-  position: relative;
-  height: 34rem;
-  margin-bottom: 3rem;
-  & .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.3;
-    height: 34rem;
-  }
-  & .picture-buttons {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 22px;
-    margin-right: 27px;
-    & a {
-      margin: 0 0.5rem;
-    }
-  }
-  & .collapse.show {
-    bottom: 0px;
-    position: absolute;
-  }
-}
-
-.post-content {
-  margin-bottom: 3rem;
-}
-
 .post-wrapper {
-  max-width: 65rem;
-  margin: auto;
-  & h3 {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-  }
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  background-image: url("../../public/img/grid1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-origin: border-box;
+  background-position: top;
 
-.images-slide {
-  max-width: 47vw;
-  margin: auto;
-  margin-top: 4rem;
-  &:hover {
-    @media (min-width: 1420px) {
+  & header.post-header {
+    margin: 10rem 10% 0;
+    border-radius: 10px;
+    min-height: calc((450px + 22vw) / 2);
+    width: auto;
+    max-width: 57rem;
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    overflow: hidden;
+    @media (max-width: 765px) {
+      margin: 6rem 4% 2rem;
     }
-  }
-  & h3 {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-  }
-  & .carousel-item {
-    margin-top: 3rem;
-    height: 39rem;
-    position: relative;
-    background-color: #777777;
-    color: #f3f3f3;
-    & > .container {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding-bottom: 50px;
-    }
-  }
-  & .overlay-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.8;
-    & > a {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    & img {
+      grid-column: 2/3;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+    }
+    & .header-content {
+      width: 100%;
+      padding-top: 1rem;
+      background-color: rgba(246, 254, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      & h1,
+      h2,
+      a,
+      .meta {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+
+    & .picture-buttons {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-bottom: 22px;
+      margin-right: 27px;
+      & a {
+        margin: 0 0.5rem;
+      }
+    }
+    & .collapse.show {
+      bottom: 0px;
+      position: absolute;
+    }
+    & a.app-button {
+      margin-top: 1rem;
+      animation: blinker 1s ease-in-out infinite alternate;
     }
   }
-}
 
-a.app-button {
-  width: 70px;
-  height: 70px;
-  padding: 10px;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 2;
-  border-radius: 35px;
-  animation: blinker 1s ease-in-out infinite alternate;
-  @media (min-width: 1420px) {
-    bottom: 5rem;
-    right: 15rem;
+  & .post-content {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    padding: 0 12% 2rem;
+    @media (max-width: 765px) {
+      padding: 0 4% 2rem;
+    }
+    & h3 {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      align-self: center;
+    }
+    & .actions-buttons {
+      display: flex;
+      height: 5rem;
+      align-items: center;
+      justify-content: center;
+      & a {
+        margin-left: 5rem;
+      }
+    }
   }
-}
 
-.skill-icons img {
-  width: 5rem;
+  & .images-slide {
+    display: flex;
+    flex-direction: column;
+    & h3 {
+      align-self: center;
+      margin-bottom: 2rem;
+    }
+    & .carousel-item {
+      margin-top: 3rem;
+      height: 39rem;
+      position: relative;
+      background-color: #777777;
+      color: #f3f3f3;
+      & > .container {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding-bottom: 50px;
+      }
+    }
+    & .overlay-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.8;
+      & > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  & .skill-icons {
+    display: flex;
+    justify-content: center;
+    & img {
+      width: 70px;
+      margin-left: 1rem;
+    }
+    
+  }
 }

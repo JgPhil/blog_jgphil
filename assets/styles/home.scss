@@ -137,15 +137,12 @@
       box-shadow: 3px 2px 15px #b3b3b3;
       padding: 40px;
       min-height: 100%;
-      @include font-size(1.2rem);
       & h4 {
         margin-top: 15px;
-        font-weight: bold;
-        @include font-size(1.75rem);
+        font-weight: 600;
       }
       & ul {
         padding-left: 0;
-        @include font-size(1.2rem);
         & > li {
           margin-top: 1rem;
         }

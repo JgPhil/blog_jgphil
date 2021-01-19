@@ -20,20 +20,24 @@
 	{% endfor %}
 
 	<div class="post-wrapper">
+
 		<header class="post-header">
-			<div class="overlay" style="background-image: url('{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}')" alt="Une image de l'article "></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-md-10 text-center mx-auto">
-						<h1 class="h1 mt-4 font-weight-bold">{{post.title}}</h1>
-						<h2 class="h2 subheading">{{post.heading}}</h2>
-						<span class="meta text-muted">Posté par
-							{{post.author.firstname}}&nbsp{{post.author.lastname}}
-							&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
-						</span>
-					</div>
-				</div>
+			<div class="header-content">
+				<h1>{{post.title}}</h1>
+				<h2 class="subheading">{{post.heading}}</h2>
+				<span class="meta">
+					{{post.author.firstname}}&nbsp{{post.author.lastname}}
+					&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
+				</span>
+				{% if post.link is not null %}
+					<a class="app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
+						<i class="far fa-play-circle fa-4x"></i>
+					</a>
+				{% endif %}
+
 			</div>
+
+			<img src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 
 			<div class="picture-buttons">
 				{% if mainPicture  and app.user%}
@@ -57,67 +61,50 @@
 			</div>
 		</header>
 
-		<section class="post-content mx-auto">
-			<div class="col text-center">
-				<h3 class="h3 font-weight-bold">Contexte & description</h3>
-				<p class="lead text-left">
-					{{ post.description|raw | nl2br}}
-				</p>
-				<h3 class="h3 font-weight-bold">Technologies</h3>
+		<section class="post-content">
+			<h3>Contexte & description</h3>
 
-				<div class="row-cols-4 skill-icons">
-					{% for skill in post.skills | icon_url %}
-						<img class="col mx-auto my-3 h-auto" src="{{ asset(skill) }}" alt="icon technology">
-					{% endfor %}
-				</div>
 
-			</div>
-			{% if post.link is not null %}
-				<a class="btn btn-primary btn-circle btn-xl app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
-					<i class="far fa-play-circle fa-3x"></i>
-				</a>
-			{% endif %}
-		</section>
+			<p>{{ post.description|raw | nl2br}}</p>
 
-		<div class="row-cols-4 justify-content-center">
-			<div class="col mx-auto my-4">
+
+			<div class="actions-buttons">
 				{% if post.githubLink %}
-					<a class="btn btn-primary" href="{{ post.githubLink }}">
-						<i class="fab fa-github fa-2x"></i>
+					<a class="" href="{{ post.githubLink }}" title="github">
+						<i class="fab fa-github fa-3x"></i>
 					</a>
-					Code source
 				{% endif %}
-			</div>
-			<div class="col mx-auto my-4">
 				{% if post.documentation %}
-					<a class="btn btn-primary" href="{{ post.documentation }}">
-						<i class="fas fa-book-reader fa-2x"></i>
+					<a class="" href="{{ post.documentation }}" title="documentation">
+						<i class="fas fa-file-alt fa-3x"></i>
 					</a>
-					Documentation
+				{% endif %}
+
+				{% if app.user %}
+					<a href="{{ path('post_update', { id: post.id }) }}" title="modifier">
+						<i class="fas fa-pencil-alt fa-lg"></i>
+					</a>
+					<a href="{{ path('post_desactivate', { id: post.id }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" title="supprimer" data-delete>
+						<i class="fas fa-trash-alt fa-lg"></i>
+					</a>
+
 				{% endif %}
 			</div>
 
-
-			{% if app.user %}
-				<div class="col mx-auto my-4">
-					<a class="btn btn-sm btn-primary" href="{{ path('post_update', {id:post.id}) }}">Modifier</a>
-				</div>
-				<div class="col mx-auto my-4">
-					<a class="btn btn-sm btn-primary" href="{{ path('post_desactivate', {id:post.id}) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')">Supprimer</a>
-				</div>
+			{% if post.pictures | length > 1 %}
+				{% include "slide.html.twig" %}
+				{% elseif app.user %}
 
 			{% endif %}
-		</div>
 
-		{% if post.pictures | length > 1 %}
-			{% include "twig_parts/slide.html.twig" %}
-			{% elseif app.user %}
+			<h3>Technologies</h3>
+			<div class="skill-icons">
+				{% for skill in post.skills | icon_url %}
+					<img class="" src="{{ asset(skill) }}" alt="icon technology">
+				{% endfor %}
+			</div>
 
-		{% endif %}
+		</section>
 	</div>
 
-{% endblock %}
-{% block javascripts %}
-	<script src=" {{ asset('js/media_delete.js') }} "></script>
-	<script src=" {{ asset('js/media_update.js') }} "></script>
 {% endblock %}
