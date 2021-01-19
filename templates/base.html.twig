@@ -26,28 +26,23 @@
 
 		<div class="main-body">
 			{% include "navbar.html.twig" %}
+			
 			{% block jumbotron %}{% endblock %}
-			<div
-				class="{# container-xl px-0 main-container #}">
 
+			{% block body %}{% endblock %}
 
-				{##  BODY  ##}
-				{% block body %}{% endblock %}
+			<footer class="text-center text-lg-start">
+				<div class="text-center p-3 copyright">
+					© 2021 Copyright:
+					<a class="text-dark" href="https://philippe-j.fr/">philippe-j.fr</a>
+				</div>
+			</footer>
 
-				<footer class="text-center text-lg-start">
-					<div class="text-center p-3 copyright">
-						© 2021 Copyright:
-						<a class="text-dark" href="https://philippe-j.fr/">philippe-j.fr</a>
-					</div>
-				</footer>
-			</div>
 		</div>
 
 		{% block javascripts %}
-			<script>/*$(document).on('scroll', function (e) {
-$('nav').toggleClass('scrolled', ($(this).scrollTop() > 150));
-});*/</script>
-		{{ encore_entry_script_tags('app') }}
-	{% endblock %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 
-</body></html>
+	</body>
+</html>

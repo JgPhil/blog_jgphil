@@ -66,7 +66,7 @@
 				<h3 class="h3 font-weight-bold">Technologies</h3>
 
 				<div class="row-cols-4 skill-icons">
-					{% for skill in skills | icon_url %}
+					{% for skill in post.skills | icon_url %}
 						<img class="col mx-auto my-3 h-auto" src="{{ asset(skill) }}" alt="icon technology">
 					{% endfor %}
 				</div>
