@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PostController extends AbstractController
 {
     /**
-     * @Route("/posts", name="post_list", methods={"GET"})
+     * @Route("/posts/list", name="post_list", methods={"GET"})
      */
     public function list(PostRepository $repo)
     {
