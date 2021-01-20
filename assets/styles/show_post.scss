@@ -91,7 +91,8 @@
       align-items: center;
       justify-content: center;
       & a {
-        margin-left: 5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
       }
     }
   }
@@ -105,7 +106,7 @@
     }
     & .carousel-item {
       margin-top: 3rem;
-      height: 39rem;
+      height: calc((300px + 80vw)/2);
       position: relative;
       background-color: #777777;
       color: #f3f3f3;
@@ -140,13 +141,17 @@
   }
 
   & .skill-icons {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
     height: auto;
+    max-width: 50rem;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
     & img {
-      width: calc((100px + 2vw) / 2);
-      margin-left: calc((5px + 5vw) / 2);
+      width: calc((70px + 2vw) / 2);
+      margin: calc((10px + 3vw) / 2);
     }
   }
 }

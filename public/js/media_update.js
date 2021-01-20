@@ -78,9 +78,12 @@ let newPictureFieldBtn = document.getElementsByClassName(
     "add-another-picture-widget"
 )[0];
 
-newPictureFieldBtn.addEventListener("click", function (e) {
-    setTimeout(fileInputText, 500);
-});
+if (newPictureFieldBtn) {
+    newPictureFieldBtn.addEventListener("click", function (e) {
+        setTimeout(fileInputText, 500);
+    });
+}
+
 
 const fileInputText = function () {
     $(".custom-file-input").change(function (e) {

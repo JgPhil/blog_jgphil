@@ -26,8 +26,8 @@
 				<h1>{{post.title}}</h1>
 				<h2 class="subheading">{{post.heading}}</h2>
 				<span class="meta">
-					{{post.author.firstname}}&nbsp{{post.author.lastname}}
-					&nbsp le &nbsp{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
+					Dernière modif. le
+					{{post.createdAt|date('d/m/y')}}&nbsp à &nbsp{{post.createdAt|date('H:i')}}
 				</span>
 				{% if post.link is not null %}
 					<a class="app-button" href={{post.link}} data-toggle="tooltip" data-placement="top" title="Voir l'application">
@@ -38,6 +38,7 @@
 			</div>
 
 			<img src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
+
 
 			<div class="picture-buttons">
 				{% if mainPicture  and app.user%}
@@ -62,8 +63,6 @@
 		</header>
 
 		<section class="post-content">
-			<h3>Contexte & description</h3>
-			<p>{{ post.description|raw | nl2br}}</p>
 			<div class="actions-buttons">
 				{% if post.githubLink %}
 					<a class="" href="{{ post.githubLink }}" title="github">
@@ -84,6 +83,9 @@
 					</a>
 				{% endif %}
 			</div>
+			<h3>Contexte & description</h3>
+			<p>{{ post.description|raw | nl2br}}</p>
+
 			{% if post.pictures | length > 1 %}
 				{% include "slide.html.twig" %}
 				{% elseif app.user %}
