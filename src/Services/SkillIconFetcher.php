@@ -2,15 +2,13 @@
 
 namespace App\Services;
 
-use App\Entity\Post;
 use Symfony\Component\Yaml\Yaml;
 
 class SkillIconFetcher
-{   
-
-
-    public static function getUrls(array $skills): array
+{
+    public static function getUrls(array $skills): ?array
     {
+        $skillsUrls = [];
         $skillFile = Yaml::parseFile('../config/skills.yaml');
 
         foreach (array_filter($skills) as $index) {

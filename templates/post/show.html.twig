@@ -76,10 +76,10 @@
 					</a>
 				{% endif %}
 				{% if app.user %}
-					<a href="{{ path('post_update', { id: post.id }) }}" title="modifier">
+					<a href="{{ path('post_update', { slug: post.slug }) }}" title="modifier">
 						<i class="fas fa-pencil-alt fa-lg"></i>
 					</a>
-					<a href="{{ path('post_desactivate', { id: post.id }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" title="supprimer" data-delete>
+					<a href="{{ path('post_desactivate', { slug: post.slug }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" title="supprimer" data-delete>
 						<i class="fas fa-trash-alt fa-lg"></i>
 					</a>
 				{% endif %}

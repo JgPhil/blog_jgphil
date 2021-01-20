@@ -34,7 +34,7 @@
 					<div class="half1">
 						<div class="deco_line"></div>
 						<h4>
-							<a href="{{ path( 'post_show', { id: post.id } ) }}">{{post.title}}</a>
+							<a href="{{ path( 'post_show', { slug: post.slug } ) }}">{{post.title}}</a>
 						</h4>
 						<h5>{{post.heading }}</h5>
 					</div>
@@ -46,16 +46,16 @@
 				</div>
 
 				<div class="img">
-					<a href="{{ path( 'post_show', { id: post.id } ) }}">
+					<a href="{{ path( 'post_show', { slug: post.slug } ) }}">
 						<img src="{{ '/img/' ~ mainPicture.name|default('../img/default-image.png') }}" alt="Une image de l'article ">
 					</a>
 				</div>
 				{% if app.user %}
 					<button>
-						<a href="{{ path('post_update', { id: post.id }) }}" class="p-1">
+						<a href="{{ path('post_update', { slug: post.slug }) }}" class="p-1">
 							<i class="fas fa-pencil-alt fa-lg"></i>
 						</a>
-						<a href="{{ path('post_desactivate', { id: post.id }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" class="p-1" data-delete>
+						<a href="{{ path('post_desactivate', { slug: post.slug }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" class="p-1" data-delete>
 							<i class="fas fa-trash-alt fa-lg"></i>
 						</a>
 					</button>

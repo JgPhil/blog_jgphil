@@ -76,6 +76,11 @@ class Post
      */
     private $documentation;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
+
     
 
     public function __construct()
@@ -235,6 +240,18 @@ class Post
     public function setDocumentation(?string $documentation): self
     {
         $this->documentation = $documentation;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

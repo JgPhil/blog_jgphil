@@ -15,7 +15,7 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function iconsUrls(array $skills): array
+    public function iconsUrls(array $skills): ?array
     {
         return SkillIconFetcher::getUrls($skills);
     }

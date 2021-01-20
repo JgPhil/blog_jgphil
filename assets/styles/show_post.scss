@@ -14,6 +14,7 @@
   background-position: top;
 
   & header.post-header {
+    padding-top: 0;
     margin: 10rem 10% 0;
     border-radius: 10px;
     width: auto;
@@ -49,8 +50,8 @@
 
     & .picture-buttons {
       position: absolute;
-      right: 0;
-      bottom: 0;
+      right: 30vw;
+      top: 21rem;
       margin-bottom: 22px;
       margin-right: 27px;
       & a {
@@ -58,7 +59,8 @@
       }
     }
     & .collapse.show {
-      bottom: 0px;
+      right: 30vw;
+      top: 26rem;
       position: absolute;
     }
     & a.app-button {
@@ -143,7 +145,7 @@
     width: 100%;
     height: auto;
     & img {
-      width: calc((100px + 2vw)/2);
+      width: calc((100px + 2vw) / 2);
       margin-left: calc((5px + 5vw) / 2);
     }
   }
