@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title "Contact" %}
+
+
+{% block body %}
+	<header class="contact-header"></header>
+	<div class="container contact">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="contact-info">
+					<i class="fas fa-envelope fa-4x"></i>
+					<h2>Vous êtes intéressé ?</h2>
+					<h4>Discutons-en</h4>
+				</div>
+			</div>
+			<div class="col-md-9">
+				{{ form_start(form) }}
+				<div class="contact-form">
+					<div class="form-group">
+						<div class="col-sm-10">
+							{{ form_row(form.firstname)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							{{ form_row(form.lastname)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							{{ form_row(form.email)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							{{ form_row(form.society)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							{{ form_row(form.content)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							{{ form_row(form.submit)}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

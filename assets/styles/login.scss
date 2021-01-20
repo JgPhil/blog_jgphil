@@ -1,0 +1,13 @@
+@import "keyframes.scss";
+
+.login-form {
+  display: flex;
+  margin-top: 4vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50rem;
+  justify-content: center;
+  & .content-block {
+      width: 100%;
+  }
+}

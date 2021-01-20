@@ -1,8 +1,12 @@
 @import "keyframes.scss";
 
-.main-body > .header {
+.main-body > header.header {
   z-index: 1;
   min-height: 75rem;
+  padding-top: 0;
+  height: auto;
+  background: none;
+  display: block;
   @media (min-width: 770px) {
     min-height: 54rem;
   }

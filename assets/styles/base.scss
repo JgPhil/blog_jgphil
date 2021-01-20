@@ -36,6 +36,19 @@ html {
       }
     }
 
+    & header {
+      background-image: url("../../public/img/grid1.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-origin: border-box;
+      background-position: top;
+      padding-top: 10rem;
+      height: 15rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     & .meta {
       font-size: smaller;
       color: gray;

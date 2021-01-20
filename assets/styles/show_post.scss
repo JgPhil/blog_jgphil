@@ -16,8 +16,8 @@
   & header.post-header {
     margin: 10rem 10% 0;
     border-radius: 10px;
-    min-height: calc((450px + 22vw) / 2);
     width: auto;
+    height: 100%;
     max-width: 57rem;
     display: grid;
     grid-template-columns: 3fr 4fr;
@@ -32,8 +32,9 @@
       object-fit: cover;
     }
     & .header-content {
+      height: 100%;
       width: 100%;
-      padding-top: 1rem;
+      padding: 2vw;
       background-color: rgba(246, 254, 255, 0.3);
       display: flex;
       flex-direction: column;
