@@ -68,7 +68,7 @@
 
   & .post-content {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2vw;
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
@@ -139,10 +139,11 @@
   & .skill-icons {
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: auto;
     & img {
-      width: 70px;
-      margin-left: 1rem;
+      width: calc((100px + 2vw)/2);
+      margin-left: calc((5px + 5vw) / 2);
     }
-    
   }
 }

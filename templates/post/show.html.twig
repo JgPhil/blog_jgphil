@@ -63,11 +63,7 @@
 
 		<section class="post-content">
 			<h3>Contexte & description</h3>
-
-
 			<p>{{ post.description|raw | nl2br}}</p>
-
-
 			<div class="actions-buttons">
 				{% if post.githubLink %}
 					<a class="" href="{{ post.githubLink }}" title="github">
@@ -79,7 +75,6 @@
 						<i class="fas fa-file-alt fa-3x"></i>
 					</a>
 				{% endif %}
-
 				{% if app.user %}
 					<a href="{{ path('post_update', { id: post.id }) }}" title="modifier">
 						<i class="fas fa-pencil-alt fa-lg"></i>
@@ -87,14 +82,11 @@
 					<a href="{{ path('post_desactivate', { id: post.id }) }}" onclick="return confirm('Êtes-vous certain de vouloir désactiver cet article ?')" title="supprimer" data-delete>
 						<i class="fas fa-trash-alt fa-lg"></i>
 					</a>
-
 				{% endif %}
 			</div>
-
 			{% if post.pictures | length > 1 %}
 				{% include "slide.html.twig" %}
 				{% elseif app.user %}
-
 			{% endif %}
 
 			<h3>Technologies</h3>

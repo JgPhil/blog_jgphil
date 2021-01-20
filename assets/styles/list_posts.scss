@@ -106,12 +106,12 @@ section.posts {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: repeat(5, 1fr);
-        gap: 8px;
+        gap: 4px;
         & .skill {
-          max-width: calc((4rem + 2vw) / 2);
+          max-width: calc((3rem + 2vw) / 2);
           height: auto;
           opacity: 0.4;
-          align-self: center;
+          align-self: center;      
         }
       }
     }
