@@ -24,7 +24,9 @@ class SkillType extends AbstractType
             ->add('sql', CheckboxType::class)
             ->add('composer', CheckboxType::class)
             ->add('wordpress', CheckboxType::class)
+            ->add('prestashop', CheckboxType::class)
             ->add('uml', CheckboxType::class);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
