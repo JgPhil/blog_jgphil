@@ -88,11 +88,6 @@
 				<h3>Contexte & description</h3>
 				<p>{{ post.description|raw | nl2br}}</p>
 			</div>
-			
-			{% if post.pictures | length > 1 %}
-				{% include "slide.html.twig" %}
-				{% elseif app.user %}
-			{% endif %}
 
 			<h3>Technologies</h3>
 			<div class="skill-icons">
@@ -100,6 +95,12 @@
 					<img class="" src="{{ asset(skill) }}" alt="icon technology">
 				{% endfor %}
 			</div>
+
+			{% if post.pictures | length > 1 %}
+				{% include "slide.html.twig" %}
+				{% elseif app.user %}
+			{% endif %}
+
 
 		</section>
 	</div>

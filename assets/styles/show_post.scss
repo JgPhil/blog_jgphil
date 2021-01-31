@@ -79,11 +79,11 @@
     padding: 0 12% 2rem;
     @media (max-width: 765px) {
       padding: 0 4% 2rem;
-      & p {
-        padding: 0 2vw!important;
+      & .description {
+        padding: 0 2vw !important;
       }
     }
-    & p {
+    & .description {
       padding: 0 9vw;
     }
     & h3 {
@@ -112,7 +112,7 @@
     }
     & .carousel-item {
       margin-top: 3rem;
-      height: calc((300px + 80vw)/2);
+      height: calc((300px + 80vw) / 2);
       position: relative;
       background-color: #777777;
       color: #f3f3f3;
