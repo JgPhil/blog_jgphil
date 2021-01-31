@@ -79,6 +79,12 @@
     padding: 0 12% 2rem;
     @media (max-width: 765px) {
       padding: 0 4% 2rem;
+      & p {
+        padding: 0 2vw!important;
+      }
+    }
+    & p {
+      padding: 0 9vw;
     }
     & h3 {
       margin-top: 4rem;
