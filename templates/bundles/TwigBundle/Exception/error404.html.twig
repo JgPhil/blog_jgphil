@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title  %}
+	Page non trouvée
+{% endblock %}
+{% block body %}
+
+	<div class="post-wrapper">
+		<div class="header-content">
+			<h1>Page non trouvée</h1>
+
+			<p>
+				La page n'a pas été trouvée. Vérifiez l'adresse URL dans le navigateur.
+				<a href="{{ path('home') }}">Retour à la page d'accueil</a>.
+			</p>
+		</div>
+
+	</div>
+
+{% endblock %}
